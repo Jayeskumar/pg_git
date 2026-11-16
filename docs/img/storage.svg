@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" role="img" aria-label="Repository size after each version">
+<style>
+svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#6250d6;}
+@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--axis:#383835;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#0ca30c;--s7:#9085e9;}}
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:var(--ink2);font-size:12px}
+.t{font-size:15px;font-weight:600;fill:var(--ink)} .m{fill:var(--muted);font-size:11px}
+.g{stroke:var(--grid);stroke-width:1} .a{stroke:var(--axis);stroke-width:1}
+</style>
+<rect width="760" height="400" fill="var(--bg)" rx="8"/>
+<text class="t" x="70" y="24">Repository size after each version</text>
+<line class="g" x1="70" x2="570" y1="352.0" y2="352.0"/>
+<text class="m" x="62" y="356.0" text-anchor="end">0</text>
+<line class="g" x1="70" x2="570" y1="290.4" y2="290.4"/>
+<text class="m" x="62" y="294.4" text-anchor="end">160</text>
+<line class="g" x1="70" x2="570" y1="228.8" y2="228.8"/>
+<text class="m" x="62" y="232.8" text-anchor="end">320</text>
+<line class="g" x1="70" x2="570" y1="167.2" y2="167.2"/>
+<text class="m" x="62" y="171.2" text-anchor="end">480</text>
+<line class="g" x1="70" x2="570" y1="105.6" y2="105.6"/>
+<text class="m" x="62" y="109.6" text-anchor="end">640</text>
+<line class="g" x1="70" x2="570" y1="44.0" y2="44.0"/>
+<text class="m" x="62" y="48.0" text-anchor="end">800</text>
+<line class="a" x1="70" x2="570" y1="352" y2="352"/>
+<text class="m" x="70.0" y="370" text-anchor="middle">1</text>
+<text class="m" x="115.5" y="370" text-anchor="middle">2</text>
+<text class="m" x="160.9" y="370" text-anchor="middle">3</text>
+<text class="m" x="206.4" y="370" text-anchor="middle">4</text>
+<text class="m" x="251.8" y="370" text-anchor="middle">5</text>
+<text class="m" x="297.3" y="370" text-anchor="middle">6</text>
+<text class="m" x="342.7" y="370" text-anchor="middle">7</text>
+<text class="m" x="388.2" y="370" text-anchor="middle">8</text>
+<text class="m" x="433.6" y="370" text-anchor="middle">9</text>
+<text class="m" x="479.1" y="370" text-anchor="middle">10</text>
+<text class="m" x="524.5" y="370" text-anchor="middle">11</text>
+<text class="m" x="570.0" y="370" text-anchor="middle">12</text>
+<text class="m" x="320.0" y="390" text-anchor="middle">version</text>
+<text class="m" transform="translate(16 198.0) rotate(-90)" text-anchor="middle">MiB</text>
+<path d="M70.0,331.3 L115.5,329.6 L160.9,326.3 L206.4,324.4 L251.8,320.2 L297.3,320.1 L342.7,318.5 L388.2,317.7 L433.6,317.6 L479.1,315.9 L524.5,313.2 L570.0,311.6" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="331.3" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v1: 54</title></circle>
+<circle cx="115.5" cy="329.6" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v2: 58</title></circle>
+<circle cx="160.9" cy="326.3" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v3: 67</title></circle>
+<circle cx="206.4" cy="324.4" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v4: 72</title></circle>
+<circle cx="251.8" cy="320.2" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v5: 82</title></circle>
+<circle cx="297.3" cy="320.1" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v6: 83</title></circle>
+<circle cx="342.7" cy="318.5" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v7: 87</title></circle>
+<circle cx="388.2" cy="317.7" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v8: 89</title></circle>
+<circle cx="433.6" cy="317.6" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v9: 89</title></circle>
+<circle cx="479.1" cy="315.9" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v10: 94</title></circle>
+<circle cx="524.5" cy="313.2" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v11: 101</title></circle>
+<circle cx="570.0" cy="311.6" r="4" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"><title>pgit v12: 105</title></circle>
+<path d="M70.0,337.8 L115.5,326.3 L160.9,323.4 L206.4,311.9 L251.8,308.0 L297.3,307.6 L342.7,294.7 L388.2,292.1 L433.6,291.9 L479.1,278.8 L524.5,276.3 L570.0,263.5" fill="none" stroke="var(--s2)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="337.8" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v1: 37</title></circle>
+<circle cx="115.5" cy="326.3" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v2: 67</title></circle>
+<circle cx="160.9" cy="323.4" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v3: 74</title></circle>
+<circle cx="206.4" cy="311.9" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v4: 104</title></circle>
+<circle cx="251.8" cy="308.0" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v5: 114</title></circle>
+<circle cx="297.3" cy="307.6" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v6: 115</title></circle>
+<circle cx="342.7" cy="294.7" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v7: 149</title></circle>
+<circle cx="388.2" cy="292.1" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v8: 156</title></circle>
+<circle cx="433.6" cy="291.9" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v9: 156</title></circle>
+<circle cx="479.1" cy="278.8" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v10: 190</title></circle>
+<circle cx="524.5" cy="276.3" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v11: 197</title></circle>
+<circle cx="570.0" cy="263.5" r="4" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest block-incr v12: 230</title></circle>
+<path d="M70.0,337.4 L115.5,323.3 L160.9,320.3 L206.4,306.0 L251.8,289.0 L297.3,288.6 L342.7,271.2 L388.2,268.6 L433.6,268.2 L479.1,250.6 L524.5,248.0 L570.0,230.1" fill="none" stroke="var(--s3)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="337.4" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v1: 38</title></circle>
+<circle cx="115.5" cy="323.3" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v2: 74</title></circle>
+<circle cx="160.9" cy="320.3" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v3: 82</title></circle>
+<circle cx="206.4" cy="306.0" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v4: 120</title></circle>
+<circle cx="251.8" cy="289.0" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v5: 164</title></circle>
+<circle cx="297.3" cy="288.6" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v6: 165</title></circle>
+<circle cx="342.7" cy="271.2" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v7: 210</title></circle>
+<circle cx="388.2" cy="268.6" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v8: 217</title></circle>
+<circle cx="433.6" cy="268.2" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v9: 218</title></circle>
+<circle cx="479.1" cy="250.6" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v10: 263</title></circle>
+<circle cx="524.5" cy="248.0" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v11: 270</title></circle>
+<circle cx="570.0" cy="230.1" r="4" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"><title>pgBackRest file-incr v12: 316</title></circle>
+<path d="M70.0,337.9 L115.5,323.9 L160.9,321.0 L206.4,304.2 L251.8,300.3 L297.3,300.1 L342.7,283.1 L388.2,280.5 L433.6,280.4 L479.1,263.1 L524.5,260.6 L570.0,242.7" fill="none" stroke="var(--s4)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="337.9" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v1: 37</title></circle>
+<circle cx="115.5" cy="323.9" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v2: 73</title></circle>
+<circle cx="160.9" cy="321.0" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v3: 80</title></circle>
+<circle cx="206.4" cy="304.2" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v4: 124</title></circle>
+<circle cx="251.8" cy="300.3" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v5: 134</title></circle>
+<circle cx="297.3" cy="300.1" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v6: 135</title></circle>
+<circle cx="342.7" cy="283.1" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v7: 179</title></circle>
+<circle cx="388.2" cy="280.5" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v8: 186</title></circle>
+<circle cx="433.6" cy="280.4" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v9: 186</title></circle>
+<circle cx="479.1" cy="263.1" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v10: 231</title></circle>
+<circle cx="524.5" cy="260.6" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v11: 237</title></circle>
+<circle cx="570.0" cy="242.7" r="4" fill="var(--s4)" stroke="var(--bg)" stroke-width="2"><title>restic v12: 284</title></circle>
+<path d="M70.0,335.2 L115.5,318.0 L160.9,314.8 L206.4,294.4 L251.8,273.4 L297.3,273.1 L342.7,251.8 L388.2,248.8 L433.6,248.7 L479.1,227.0 L524.5,224.2 L570.0,202.3" fill="none" stroke="var(--s5)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="335.2" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v1: 44</title></circle>
+<circle cx="115.5" cy="318.0" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v2: 88</title></circle>
+<circle cx="160.9" cy="314.8" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v3: 97</title></circle>
+<circle cx="206.4" cy="294.4" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v4: 150</title></circle>
+<circle cx="251.8" cy="273.4" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v5: 204</title></circle>
+<circle cx="297.3" cy="273.1" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v6: 205</title></circle>
+<circle cx="342.7" cy="251.8" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v7: 260</title></circle>
+<circle cx="388.2" cy="248.8" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v8: 268</title></circle>
+<circle cx="433.6" cy="248.7" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v9: 268</title></circle>
+<circle cx="479.1" cy="227.0" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v10: 325</title></circle>
+<circle cx="524.5" cy="224.2" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v11: 332</title></circle>
+<circle cx="570.0" cy="202.3" r="4" fill="var(--s5)" stroke="var(--bg)" stroke-width="2"><title>git v12: 389</title></circle>
+<path d="M70.0,337.7 L115.5,322.4 L160.9,304.5 L206.4,286.2 L251.8,265.1 L297.3,243.9 L342.7,222.4 L388.2,201.4 L433.6,180.4 L479.1,159.1 L524.5,138.0 L570.0,116.7" fill="none" stroke="var(--s6)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="337.7" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v1: 37</title></circle>
+<circle cx="115.5" cy="322.4" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v2: 77</title></circle>
+<circle cx="160.9" cy="304.5" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v3: 123</title></circle>
+<circle cx="206.4" cy="286.2" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v4: 171</title></circle>
+<circle cx="251.8" cy="265.1" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v5: 226</title></circle>
+<circle cx="297.3" cy="243.9" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v6: 281</title></circle>
+<circle cx="342.7" cy="222.4" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v7: 337</title></circle>
+<circle cx="388.2" cy="201.4" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v8: 391</title></circle>
+<circle cx="433.6" cy="180.4" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v9: 446</title></circle>
+<circle cx="479.1" cy="159.1" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v10: 501</title></circle>
+<circle cx="524.5" cy="138.0" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v11: 556</title></circle>
+<circle cx="570.0" cy="116.7" r="4" fill="var(--s6)" stroke="var(--bg)" stroke-width="2"><title>pg_basebackup (full) v12: 611</title></circle>
+<path d="M70.0,350.5 L115.5,349.0 L160.9,345.4 L206.4,341.7 L251.8,336.0 L297.3,330.3 L342.7,324.5 L388.2,319.0 L433.6,313.6 L479.1,308.0 L524.5,302.5 L570.0,296.7" fill="none" stroke="var(--s7)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="350.5" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v1: 4</title></circle>
+<circle cx="115.5" cy="349.0" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v2: 8</title></circle>
+<circle cx="160.9" cy="345.4" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v3: 17</title></circle>
+<circle cx="206.4" cy="341.7" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v4: 27</title></circle>
+<circle cx="251.8" cy="336.0" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v5: 41</title></circle>
+<circle cx="297.3" cy="330.3" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v6: 56</title></circle>
+<circle cx="342.7" cy="324.5" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v7: 71</title></circle>
+<circle cx="388.2" cy="319.0" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v8: 86</title></circle>
+<circle cx="433.6" cy="313.6" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v9: 100</title></circle>
+<circle cx="479.1" cy="308.0" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v10: 114</title></circle>
+<circle cx="524.5" cy="302.5" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v11: 129</title></circle>
+<circle cx="570.0" cy="296.7" r="4" fill="var(--s7)" stroke="var(--bg)" stroke-width="2"><title>pg_dump (logical) v12: 144</title></circle>
+<line x1="588" x2="608" y1="52" y2="52" stroke="var(--s1)" stroke-width="3" stroke-linecap="round"/>
+<text x="614" y="56">pgit</text>
+<line x1="588" x2="608" y1="74" y2="74" stroke="var(--s2)" stroke-width="3" stroke-linecap="round"/>
+<text x="614" y="78">pgBackRest block-incr</text>
+<line x1="588" x2="608" y1="96" y2="96" stroke="var(--s3)" stroke-width="3" stroke-linecap="round"/>
+<text x="614" y="100">pgBackRest file-incr</text>
+<line x1="588" x2="608" y1="118" y2="118" stroke="var(--s4)" stroke-width="3" stroke-linecap="round"/>
+<text x="614" y="122">restic</text>
+<line x1="588" x2="608" y1="140" y2="140" stroke="var(--s5)" stroke-width="3" stroke-linecap="round"/>
+<text x="614" y="144">git</text>
+<line x1="588" x2="608" y1="162" y2="162" stroke="var(--s6)" stroke-width="3" stroke-linecap="round"/>
+<text x="614" y="166">pg_basebackup (full)</text>
+<line x1="588" x2="608" y1="184" y2="184" stroke="var(--s7)" stroke-width="3" stroke-linecap="round"/>
+<text x="614" y="188">pg_dump (logical)</text>
+</svg>

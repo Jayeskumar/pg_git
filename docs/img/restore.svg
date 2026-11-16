@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 314" width="760" height="314" role="img" aria-label="Time to a running cluster, latest version (v12)">
+<style>
+svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--s1:#2a78d6;--s2:#eb6834;}
+@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--axis:#383835;--s1:#3987e5;--s2:#d95926;}}
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:var(--ink2);font-size:12px}
+.t{font-size:15px;font-weight:600;fill:var(--ink)} .m{fill:var(--muted);font-size:11px}
+.g{stroke:var(--grid);stroke-width:1} .a{stroke:var(--axis);stroke-width:1}
+</style>
+<rect width="760" height="314" fill="var(--bg)" rx="8"/>
+<text class="t" x="16" y="24">Time to a running cluster, latest version (v12)</text>
+<rect x="16" y="38" width="12" height="12" rx="3" fill="var(--s1)"/>
+<text x="34" y="48">restore files</text>
+<rect x="143.5" y="38" width="12" height="12" rx="3" fill="var(--s2)"/>
+<text x="161.5" y="48">startup + recovery</text>
+<line class="g" x1="190.0" x2="190.0" y1="60" y2="274"/>
+<text class="m" x="190.0" y="290" text-anchor="middle">0.0 s</text>
+<line class="g" x1="288.0" x2="288.0" y1="60" y2="274"/>
+<text class="m" x="288.0" y="290" text-anchor="middle">1.2 s</text>
+<line class="g" x1="386.0" x2="386.0" y1="60" y2="274"/>
+<text class="m" x="386.0" y="290" text-anchor="middle">2.4 s</text>
+<line class="g" x1="484.0" x2="484.0" y1="60" y2="274"/>
+<text class="m" x="484.0" y="290" text-anchor="middle">3.6 s</text>
+<line class="g" x1="582.0" x2="582.0" y1="60" y2="274"/>
+<text class="m" x="582.0" y="290" text-anchor="middle">4.8 s</text>
+<line class="g" x1="680.0" x2="680.0" y1="60" y2="274"/>
+<text class="m" x="680.0" y="290" text-anchor="middle">6.0 s</text>
+<text x="180" y="83.0" text-anchor="end">pgit</text>
+<rect x="190.0" y="70" width="181.8" height="18" rx="0" fill="var(--s1)"><title>pgit – restore files: 2.2 s</title></rect>
+<rect x="373.8" y="70" width="74.4" height="18" rx="4" fill="var(--s2)"><title>pgit – startup + recovery: 0.9 s</title></rect>
+<text x="454.1" y="83.0" style="fill:var(--ink)">3.2 s</text>
+<text x="180" y="113.0" text-anchor="end">pgBackRest block-incr</text>
+<rect x="190.0" y="100" width="134.3" height="18" rx="0" fill="var(--s1)"><title>pgBackRest block-incr – restore files: 1.7 s</title></rect>
+<rect x="326.3" y="100" width="25.3" height="18" rx="4" fill="var(--s2)"><title>pgBackRest block-incr – startup + recovery: 0.3 s</title></rect>
+<text x="357.6" y="113.0" style="fill:var(--ink)">2.0 s</text>
+<text x="180" y="143.0" text-anchor="end">pgBackRest file-incr</text>
+<rect x="190.0" y="130" width="148.8" height="18" rx="0" fill="var(--s1)"><title>pgBackRest file-incr – restore files: 1.8 s</title></rect>
+<rect x="340.8" y="130" width="25.2" height="18" rx="4" fill="var(--s2)"><title>pgBackRest file-incr – startup + recovery: 0.3 s</title></rect>
+<text x="372.1" y="143.0" style="fill:var(--ink)">2.2 s</text>
+<text x="180" y="173.0" text-anchor="end">restic</text>
+<rect x="190.0" y="160" width="147.3" height="18" rx="0" fill="var(--s1)"><title>restic – restore files: 1.8 s</title></rect>
+<rect x="339.3" y="160" width="74.5" height="18" rx="4" fill="var(--s2)"><title>restic – startup + recovery: 0.9 s</title></rect>
+<text x="419.8" y="173.0" style="fill:var(--ink)">2.7 s</text>
+<text x="180" y="203.0" text-anchor="end">git</text>
+<rect x="190.0" y="190" width="132.3" height="18" rx="0" fill="var(--s1)"><title>git – restore files: 1.6 s</title></rect>
+<rect x="324.3" y="190" width="82.5" height="18" rx="4" fill="var(--s2)"><title>git – startup + recovery: 1.0 s</title></rect>
+<text x="412.7" y="203.0" style="fill:var(--ink)">2.7 s</text>
+<text x="180" y="233.0" text-anchor="end">pg_basebackup (full)</text>
+<rect x="190.0" y="220" width="120.8" height="18" rx="0" fill="var(--s1)"><title>pg_basebackup (full) – restore files: 1.5 s</title></rect>
+<rect x="312.8" y="220" width="99.1" height="18" rx="4" fill="var(--s2)"><title>pg_basebackup (full) – startup + recovery: 1.2 s</title></rect>
+<text x="417.9" y="233.0" style="fill:var(--ink)">2.7 s</text>
+<text x="180" y="263.0" text-anchor="end">pg_dump (logical)</text>
+<rect x="190.0" y="250" width="434.8" height="18" rx="4" fill="var(--s1)"><title>pg_dump (logical) – restore files: 5.3 s</title></rect>
+<text x="632.8" y="263.0" style="fill:var(--ink)">5.3 s</text>
+</svg>

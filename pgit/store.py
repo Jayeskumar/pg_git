@@ -502,10 +502,10 @@ class Store:
             elif m.kind == K_ZSTD:
                 data = self._dctx().decompress(payload, max_output_size=m.rawlen)
             elif m.kind == K_XOR:
-                base = self.get(mbase, verify, _depth + 1)
+                base = self.get(mbase, False, _depth + 1)
                 data = xor_bytes(self._dctx().decompress(payload, max_output_size=m.rawlen), base)
             elif m.kind == K_ZDICT:
-                base = self.get(mbase, verify, _depth + 1)
+                base = self.get(mbase, False, _depth + 1)
                 d = zstd.ZstdCompressionDict(base, dict_type=zstd.DICT_TYPE_RAWCONTENT)
                 data = zstd.ZstdDecompressor(dict_data=d).decompress(payload, max_output_size=m.rawlen)
             elif m.kind == K_TDICT:
@@ -517,8 +517,11 @@ class Store:
         if len(data) != m.rawlen or (verify and oid(data) != id_):
             raise IntegrityError(f"object {id_.hex()} hash mismatch (corrupt pack {m.pack}"
                                  f" @ {m.off})")
-        # cache small objects that are likely to be re-used (bases, zero pages)
-        if m.depth < self.config["max_depth"] or m.otype != OT_BLOB:
+        # cache objects that are likely to be re-used (zero pages, blocklists).
+        # Bases inside a delta chain are decoded with verify=False - the hash of
+        # the final object covers the whole chain - and are never cached, so the
+        # cache only ever holds verified content.
+        if verify and (m.depth < self.config["max_depth"] or m.otype != OT_BLOB):
             with self._cache_lock:
                 self._cache[id_] = data
                 if len(self._cache) > self._cache_max:

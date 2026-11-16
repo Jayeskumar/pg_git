@@ -210,7 +210,8 @@ def main():
         if t.startswith("git") and r.get("git_gc", {}).get("repo_bytes"):
             note = f" ({mib(r['git_gc']['repo_bytes'])} after `git gc`)"
         md.append(f"| {SHORT[t]} | {mib(first)} | {mib(inc)} | {mib(total)}{note} | "
-                  f"{logical / total:.1f}× | {bb_total / total:.1f}× smaller |")
+                  f"{logical / total:.1f}× | " + ("baseline" if t.startswith("pg_basebackup") else
+                                          f"{bb_total / total:.1f}× smaller") + " |")
     md.append("")
     br = [t for t in tools if t.startswith("pgBackRest")]
     if br:
@@ -369,6 +370,14 @@ def main():
         md.append(f"| {SHORT[t]} | {yes(c.get('detected'))} | {c.get('how', c.get('error', ''))} "
                   f"| {c.get('versions_affected', '–')} |")
     md.append("")
+    md.append("*Versions affected* counts the snapshots the tool reported as damaged. It depends on "
+              "*which* file was hit, so it is not a like-for-like comparison. For pgBackRest the "
+              "largest file happened to belong to the newest incremental. For pgit it was the first "
+              "pack, which holds pages that every later snapshot shares (dedup) or builds deltas on. "
+              "That is the inherent trade-off of deduplicated and incremental storage: a damaged "
+              "pgBackRest *full* backup also invalidates the incrementals that depend on it. pgit "
+              "detects such damage on every read and names the affected objects, but it cannot "
+              "repair from a single copy, so keep the repository on redundant storage.\n")
 
     # ------------------------------------------------------------------- diff
     d = r.get("pgit_diff_first_last")
