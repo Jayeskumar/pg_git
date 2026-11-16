@@ -153,6 +153,51 @@ def hbar_chart(rows, segs, title, xfmt, width=760, row_h=30):
     return "\n".join(out)
 
 
+def grouped_bars(cats, series, title, ylabel, yfmt, width=820, height=400):
+    """cats: x categories; series: list of (name, [value per cat]) - vertical grouped bars."""
+    L, R, T, B = 64, 20, 70, 48
+    pw, ph = width - L - R, height - T - B
+    ymax = _nice_max(max(v for _n, vals in series for v in vals))
+    gw = pw / len(cats)
+    bw = max(3.0, (gw - 10) / len(series) - 2)
+
+    def sy(y):
+        return T + ph - y / ymax * ph
+
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" '
+           f'width="{width}" height="{height}" role="img" aria-label="{title}">', _style(len(series)),
+           f'<rect width="{width}" height="{height}" fill="var(--bg)" rx="8"/>',
+           f'<text class="t" x="16" y="24">{title}</text>']
+    lx = 16
+    for i, (name, _v) in enumerate(series):
+        out.append(f'<rect x="{lx}" y="38" width="12" height="12" rx="3" fill="var(--s{i + 1})"/>')
+        out.append(f'<text x="{lx + 18}" y="48">{name}</text>')
+        lx += 34 + 7 * len(name)
+    for k in range(6):
+        y = ymax * k / 5
+        out.append(f'<line class="g" x1="{L}" x2="{L + pw}" y1="{sy(y):.1f}" y2="{sy(y):.1f}"/>')
+        out.append(f'<text class="m" x="{L - 8}" y="{sy(y) + 4:.1f}" text-anchor="end">{yfmt(y)}</text>')
+    out.append(f'<line class="a" x1="{L}" x2="{L + pw}" y1="{T + ph}" y2="{T + ph}"/>')
+    out.append(f'<text class="m" transform="translate(16 {T + ph / 2}) rotate(-90)" '
+               f'text-anchor="middle">{ylabel}</text>')
+    for c, cat in enumerate(cats):
+        gx = L + c * gw + 5
+        out.append(f'<text class="m" x="{L + c * gw + gw / 2:.1f}" y="{T + ph + 18}" '
+                   f'text-anchor="middle">{cat}</text>')
+        for i, (name, vals) in enumerate(series):
+            v = vals[c]
+            x = gx + i * (bw + 2)
+            h = max(1.0, T + ph - sy(v))
+            r = min(4, bw / 2, h)
+            # rounded data-end, square at the baseline
+            out.append(f'<path d="M{x:.1f},{T + ph} V{T + ph - h + r:.1f} Q{x:.1f},{T + ph - h:.1f} '
+                       f'{x + r:.1f},{T + ph - h:.1f} H{x + bw - r:.1f} Q{x + bw:.1f},{T + ph - h:.1f} '
+                       f'{x + bw:.1f},{T + ph - h + r:.1f} V{T + ph} Z" fill="var(--s{i + 1})">'
+                       f'<title>{name}, {cat}: {yfmt(v)}</title></path>')
+    out.append("</svg>")
+    return "\n".join(out)
+
+
 # ---------------------------------------------------------------- report
 def main():
     ap = argparse.ArgumentParser()
@@ -231,14 +276,15 @@ def main():
                                            "restic (on plain basebackup)")]
     series = []
     for t in inc_tools:
-        pts = []
+        vals = []
         for i in range(1, N):
             a_, b_ = size_at(t, i - 1), size_at(t, i)
-            if a_ is not None and b_ is not None:
-                pts.append((vers[i]["v"], (b_ - a_) / 2**20))
-        series.append((SHORT[t], pts))
-    (img / "incremental.svg").write_text(line_chart(series, "Bytes added by each incremental version",
-                                                    "MiB added", lambda y: f"{y:,.0f}"))
+            vals.append((b_ - a_) / 2**20 if a_ is not None and b_ is not None else 0.0)
+        series.append((SHORT[t], vals))
+    (img / "incremental.svg").write_text(grouped_bars(
+        [f"v{vers[i]['v']}" for i in range(1, N)], series,
+        "Bytes added by each incremental version (see the table for the change applied)",
+        "MiB added", lambda y: f"{y:,.0f}"))
     md.append("![Bytes added per version](img/incremental.svg)\n")
 
     md.append("### Bytes added per version\n")

@@ -37,953 +37,953 @@
    "db_bytes": 814677068,
    "backups": {
     "pgit": {
-     "seconds": 5.714,
-     "repo_bytes": 56334516,
-     "packs": 50386956,
-     "index": 5947392
+     "seconds": 6.028,
+     "repo_bytes": 56301780,
+     "packs": 50386988,
+     "index": 5914624
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.24,
-     "repo_bytes": 39073440
+     "seconds": 1.818,
+     "repo_bytes": 39072261
     },
     "pgit-dedup-only": {
-     "seconds": 6.415,
+     "seconds": 6.83,
      "repo_bytes": 56280913,
      "packs": 50362025,
      "index": 5918720
     },
     "pgit-xor-only": {
-     "seconds": 6.693,
-     "repo_bytes": 56280915,
-     "packs": 50362028,
+     "seconds": 6.888,
+     "repo_bytes": 56280912,
+     "packs": 50362025,
      "index": 5918720
     },
     "pgit-zdict-only": {
-     "seconds": 6.684,
-     "repo_bytes": 56280917,
-     "packs": 50362028,
-     "index": 5918720
-    },
-    "pgit-auto-from-tar": {
-     "seconds": 7.081,
-     "repo_bytes": 56280914,
+     "seconds": 6.992,
+     "repo_bytes": 56280915,
      "packs": 50362026,
      "index": 5918720
     },
+    "pgit-auto-from-tar": {
+     "seconds": 7.659,
+     "repo_bytes": 56280915,
+     "packs": 50362027,
+     "index": 5918720
+    },
     "pgit-auto-depth2": {
-     "seconds": 6.845,
-     "repo_bytes": 56280916,
-     "packs": 50362028,
+     "seconds": 7.087,
+     "repo_bytes": 56280915,
+     "packs": 50362027,
      "index": 5918720
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 4.032,
-     "repo_bytes": 39880523,
-     "backup": 39880523,
-     "wal_archive": 35246775
+     "seconds": 3.645,
+     "repo_bytes": 39880522,
+     "backup": 39880522,
+     "wal_archive": 35244680
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.647,
-     "repo_bytes": 38692933,
-     "backup": 38692933,
-     "wal_archive": 35248496
+     "seconds": 3.842,
+     "repo_bytes": 38692765,
+     "backup": 38692765,
+     "wal_archive": 35246401
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.545,
-     "repo_bytes": 38338093
+     "seconds": 1.657,
+     "repo_bytes": 38338679
     },
     "git (on plain basebackup)": {
-     "seconds": 4.08,
-     "repo_bytes": 45803464
+     "seconds": 4.016,
+     "repo_bytes": 45803513
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 1.736,
+     "seconds": 1.789,
      "repo_bytes": 4052372
     }
    },
-   "stage_seconds": 0.7601151466369629
+   "stage_seconds": 0.7610776424407959
   },
   {
    "v": 2,
    "step": "pgbench 4x2500 tx",
    "checksums": {
     "events": "0:0",
-    "pgbench_accounts": "5000000:2882880415085586581087318",
-    "pgbench_branches": "50:29205515825508144325",
-    "pgbench_history": "10000:5770715695120377401610",
-    "pgbench_tellers": "500:295655142246000045221"
+    "pgbench_accounts": "5000000:2882987732925855033597557",
+    "pgbench_branches": "50:30929474316743287705",
+    "pgbench_history": "10000:5759207324224637794952",
+    "pgbench_tellers": "500:296283482906579574398"
    },
-   "db_bytes": 816723540,
+   "db_bytes": 816707156,
    "backups": {
     "pgit": {
-     "seconds": 4.79,
-     "repo_bytes": 60900197,
-     "packs": 53977789,
-     "index": 6922240
+     "seconds": 4.824,
+     "repo_bytes": 61158027,
+     "packs": 54219235,
+     "index": 6938624
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.465,
-     "repo_bytes": 80539995
+     "seconds": 1.732,
+     "repo_bytes": 80316402
     },
     "pgit-dedup-only": {
-     "seconds": 3.446,
-     "repo_bytes": 74729576,
-     "packs": 67680192,
-     "index": 7049216
+     "seconds": 3.45,
+     "repo_bytes": 74495778,
+     "packs": 67458682,
+     "index": 7036928
     },
     "pgit-xor-only": {
-     "seconds": 4.353,
-     "repo_bytes": 62131910,
-     "packs": 55107103,
-     "index": 7024640
+     "seconds": 4.338,
+     "repo_bytes": 61834108,
+     "packs": 54846165,
+     "index": 6987776
     },
     "pgit-zdict-only": {
-     "seconds": 4.875,
-     "repo_bytes": 61279705,
-     "packs": 54246704,
-     "index": 7032832
+     "seconds": 5.003,
+     "repo_bytes": 60953647,
+     "packs": 53990278,
+     "index": 6963200
     },
     "pgit-auto-from-tar": {
-     "seconds": 5.211,
-     "repo_bytes": 61224106,
-     "packs": 54195202,
-     "index": 7028736
+     "seconds": 5.219,
+     "repo_bytes": 60901962,
+     "packs": 53938594,
+     "index": 6963200
     },
     "pgit-auto-depth2": {
-     "seconds": 5.246,
-     "repo_bytes": 61224109,
-     "packs": 54195205,
-     "index": 7028736
+     "seconds": 5.163,
+     "repo_bytes": 60901959,
+     "packs": 53938591,
+     "index": 6963200
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 3.813,
-     "repo_bytes": 78038212,
-     "backup": 78038212,
-     "wal_archive": 52150693
+     "seconds": 4.382,
+     "repo_bytes": 78046219,
+     "backup": 78046219,
+     "wal_archive": 52129507
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.874,
-     "repo_bytes": 69949591,
-     "backup": 69949591,
-     "wal_archive": 52152446
+     "seconds": 3.704,
+     "repo_bytes": 69899442,
+     "backup": 69899442,
+     "wal_archive": 52131229
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.755,
-     "repo_bytes": 76419886
+     "seconds": 1.733,
+     "repo_bytes": 76361370
     },
     "git (on plain basebackup)": {
-     "seconds": 4.098,
-     "repo_bytes": 92669374
+     "seconds": 4.086,
+     "repo_bytes": 92667469
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 1.751,
-     "repo_bytes": 8243522
+     "seconds": 1.841,
+     "repo_bytes": 8245429
     }
    },
-   "stage_seconds": 0.7338156700134277
+   "stage_seconds": 0.8689987659454346
   },
   {
    "v": 3,
    "step": "bulk insert 200000 events",
    "checksums": {
-    "events": "200000:115424921389917874825891",
-    "pgbench_accounts": "5000000:2882880415085586581087318",
-    "pgbench_branches": "50:29205515825508144325",
-    "pgbench_history": "10000:5770715695120377401610",
-    "pgbench_tellers": "500:295655142246000045221"
+    "events": "200000:115129903552933042993849",
+    "pgbench_accounts": "5000000:2882987732925855033597557",
+    "pgbench_branches": "50:30929474316743287705",
+    "pgbench_history": "10000:5759207324224637794952",
+    "pgbench_tellers": "500:296283482906579574398"
    },
-   "db_bytes": 853883980,
+   "db_bytes": 853867596,
    "backups": {
     "pgit": {
-     "seconds": 2.31,
-     "repo_bytes": 70107744,
-     "packs": 62853560,
-     "index": 7254016
+     "seconds": 2.328,
+     "repo_bytes": 70341092,
+     "packs": 63095100,
+     "index": 7245824
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.498,
-     "repo_bytes": 129409847
+     "seconds": 2.094,
+     "repo_bytes": 129164867
     },
     "pgit-dedup-only": {
-     "seconds": 3.158,
-     "repo_bytes": 84233249,
-     "packs": 76893049,
-     "index": 7340032
+     "seconds": 3.112,
+     "repo_bytes": 83739437,
+     "packs": 76432005,
+     "index": 7307264
     },
     "pgit-xor-only": {
-     "seconds": 3.107,
-     "repo_bytes": 71356249,
-     "packs": 64061106,
-     "index": 7294976
+     "seconds": 3.199,
+     "repo_bytes": 71065395,
+     "packs": 63778444,
+     "index": 7286784
     },
     "pgit-zdict-only": {
-     "seconds": 3.109,
-     "repo_bytes": 70392320,
-     "packs": 63113559,
-     "index": 7278592
+     "seconds": 3.196,
+     "repo_bytes": 70126702,
+     "packs": 62839749,
+     "index": 7286784
     },
     "pgit-auto-from-tar": {
-     "seconds": 3.223,
-     "repo_bytes": 70336698,
-     "packs": 63062034,
-     "index": 7274496
+     "seconds": 3.119,
+     "repo_bytes": 70066804,
+     "packs": 62788044,
+     "index": 7278592
     },
     "pgit-auto-depth2": {
-     "seconds": 3.073,
-     "repo_bytes": 70336702,
-     "packs": 63062038,
+     "seconds": 3.09,
+     "repo_bytes": 70062705,
+     "packs": 62788041,
      "index": 7274496
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 2.607,
-     "repo_bytes": 86408044,
-     "backup": 86408044,
-     "wal_archive": 78876756
+     "seconds": 2.65,
+     "repo_bytes": 86415938,
+     "backup": 86415938,
+     "wal_archive": 78856385
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.095,
-     "repo_bytes": 77933091,
-     "backup": 77933091,
-     "wal_archive": 78878475
+     "seconds": 3.085,
+     "repo_bytes": 77882983,
+     "backup": 77882983,
+     "wal_archive": 78858104
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.063,
-     "repo_bytes": 84359084
+     "seconds": 1.104,
+     "repo_bytes": 84302837
     },
     "git (on plain basebackup)": {
-     "seconds": 3.309,
-     "repo_bytes": 101253712
+     "seconds": 3.483,
+     "repo_bytes": 101247029
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 1.889,
-     "repo_bytes": 17892148
+     "seconds": 1.905,
+     "repo_bytes": 17892330
     }
    },
-   "stage_seconds": 0.6172282695770264
+   "stage_seconds": 0.8113548755645752
   },
   {
    "v": 4,
    "step": "pgbench 4x2500 tx",
    "checksums": {
-    "events": "200000:115424921389917874825891",
-    "pgbench_accounts": "5000000:2882786998882275489665593",
-    "pgbench_branches": "50:24780779233840263962",
-    "pgbench_history": "20000:11498966163204102503526",
-    "pgbench_tellers": "500:296594626801574999206"
+    "events": "200000:115129903552933042993849",
+    "pgbench_accounts": "5000000:2883034345348582206828313",
+    "pgbench_branches": "50:27879211453831347146",
+    "pgbench_history": "20000:11518586180907135674336",
+    "pgbench_tellers": "500:289335802583756475060"
    },
-   "db_bytes": 855546956,
+   "db_bytes": 855522380,
    "backups": {
     "pgit": {
-     "seconds": 5.637,
-     "repo_bytes": 75263274,
-     "packs": 66788482,
-     "index": 8474624
+     "seconds": 5.712,
+     "repo_bytes": 75417673,
+     "packs": 67016609,
+     "index": 8400896
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.546,
-     "repo_bytes": 179161212
+     "seconds": 1.535,
+     "repo_bytes": 178912069
     },
     "pgit-dedup-only": {
-     "seconds": 3.681,
-     "repo_bytes": 109674479,
-     "packs": 101109575,
-     "index": 8564736
+     "seconds": 3.871,
+     "repo_bytes": 109204051,
+     "packs": 100594091,
+     "index": 8609792
     },
     "pgit-xor-only": {
-     "seconds": 5.333,
-     "repo_bytes": 77386496,
-     "packs": 68854361,
-     "index": 8531968
-    },
-    "pgit-zdict-only": {
-     "seconds": 5.798,
-     "repo_bytes": 75631954,
-     "packs": 67165353,
-     "index": 8466432
-    },
-    "pgit-auto-from-tar": {
-     "seconds": 6.204,
-     "repo_bytes": 75467281,
-     "packs": 66988393,
+     "seconds": 5.09,
+     "repo_bytes": 77046455,
+     "packs": 68567568,
      "index": 8478720
     },
+    "pgit-zdict-only": {
+     "seconds": 5.911,
+     "repo_bytes": 75354497,
+     "packs": 66879704,
+     "index": 8474624
+    },
+    "pgit-auto-from-tar": {
+     "seconds": 6.232,
+     "repo_bytes": 75200380,
+     "packs": 66701012,
+     "index": 8499200
+    },
     "pgit-auto-depth2": {
-     "seconds": 7.099,
-     "repo_bytes": 75506264,
-     "packs": 67043760,
-     "index": 8462336
+     "seconds": 6.646,
+     "repo_bytes": 75259414,
+     "packs": 66755950,
+     "index": 8503296
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 3.745,
-     "repo_bytes": 125325469,
-     "backup": 125325469,
-     "wal_archive": 94960371
+     "seconds": 3.937,
+     "repo_bytes": 125318380,
+     "backup": 125318380,
+     "wal_archive": 94918177
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 4.595,
-     "repo_bytes": 109316844,
-     "backup": 109316844,
-     "wal_archive": 94962092
+     "seconds": 4.389,
+     "repo_bytes": 108917696,
+     "backup": 108917696,
+     "wal_archive": 94919898
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.845,
-     "repo_bytes": 130102508
+     "seconds": 1.735,
+     "repo_bytes": 130050390
     },
     "git (on plain basebackup)": {
-     "seconds": 4.395,
-     "repo_bytes": 156778250
+     "seconds": 4.562,
+     "repo_bytes": 156767556
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 2.037,
-     "repo_bytes": 27943971
+     "seconds": 1.881,
+     "repo_bytes": 27936497
     }
    },
-   "stage_seconds": 0.8213315010070801
+   "stage_seconds": 0.9430346488952637
   },
   {
    "v": 5,
    "step": "update 250000 contiguous accounts",
    "checksums": {
-    "events": "200000:115424921389917874825891",
-    "pgbench_accounts": "5000000:2882451846952613127107816",
-    "pgbench_branches": "50:24780779233840263962",
-    "pgbench_history": "20000:11498966163204102503526",
-    "pgbench_tellers": "500:296594626801574999206"
+    "events": "200000:115129903552933042993849",
+    "pgbench_accounts": "5000000:2882704822553952550180111",
+    "pgbench_branches": "50:27879211453831347146",
+    "pgbench_history": "20000:11518586180907135674336",
+    "pgbench_tellers": "500:289335802583756475060"
    },
-   "db_bytes": 894785108,
+   "db_bytes": 894768724,
    "backups": {
     "pgit": {
-     "seconds": 3.328,
-     "repo_bytes": 86491354,
-     "packs": 77398066,
-     "index": 9093120
+     "seconds": 3.254,
+     "repo_bytes": 86728478,
+     "packs": 77639286,
+     "index": 9089024
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.565,
-     "repo_bytes": 236685455
+     "seconds": 1.694,
+     "repo_bytes": 236425201
     },
     "pgit-dedup-only": {
-     "seconds": 3.423,
-     "repo_bytes": 121865611,
-     "packs": 112686307,
-     "index": 9179136
+     "seconds": 3.402,
+     "repo_bytes": 121314601,
+     "packs": 112188545,
+     "index": 9125888
     },
     "pgit-xor-only": {
-     "seconds": 3.832,
-     "repo_bytes": 89214619,
-     "packs": 80096756,
-     "index": 9117696
+     "seconds": 3.725,
+     "repo_bytes": 88912441,
+     "packs": 79823250,
+     "index": 9089024
     },
     "pgit-zdict-only": {
-     "seconds": 3.83,
-     "repo_bytes": 86854260,
-     "packs": 77769163,
-     "index": 9084928
+     "seconds": 3.938,
+     "repo_bytes": 86589106,
+     "packs": 77495817,
+     "index": 9093120
     },
     "pgit-auto-from-tar": {
-     "seconds": 4.247,
-     "repo_bytes": 86712703,
-     "packs": 77590743,
-     "index": 9121792
+     "seconds": 4.284,
+     "repo_bytes": 86348310,
+     "packs": 77316462,
+     "index": 9031680
     },
     "pgit-auto-depth2": {
-     "seconds": 4.145,
-     "repo_bytes": 86907892,
-     "packs": 77785932,
-     "index": 9121792
+     "seconds": 4.017,
+     "repo_bytes": 86555905,
+     "packs": 77499481,
+     "index": 9056256
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 4.005,
-     "repo_bytes": 171558065,
-     "backup": 171558065,
-     "wal_archive": 123489070
+     "seconds": 3.458,
+     "repo_bytes": 171527666,
+     "backup": 171527666,
+     "wal_archive": 123444890
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.636,
-     "repo_bytes": 119887464,
-     "backup": 119887464,
-     "wal_archive": 123490791
+     "seconds": 3.664,
+     "repo_bytes": 119479927,
+     "backup": 119479927,
+     "wal_archive": 123446611
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.165,
-     "repo_bytes": 140864036
+     "seconds": 1.243,
+     "repo_bytes": 140807570
     },
     "git (on plain basebackup)": {
-     "seconds": 4.625,
-     "repo_bytes": 214021828
+     "seconds": 4.549,
+     "repo_bytes": 214015363
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 2.04,
-     "repo_bytes": 43480137
+     "seconds": 1.925,
+     "repo_bytes": 43468599
     }
    },
-   "stage_seconds": 0.8146266937255859
+   "stage_seconds": 0.7542977333068848
   },
   {
    "v": 6,
    "step": "create index on events",
    "checksums": {
-    "events": "200000:115424921389917874825891",
-    "pgbench_accounts": "5000000:2882451846952613127107816",
-    "pgbench_branches": "50:24780779233840263962",
-    "pgbench_history": "20000:11498966163204102503526",
-    "pgbench_tellers": "500:296594626801574999206"
+    "events": "200000:115129903552933042993849",
+    "pgbench_accounts": "5000000:2882704822553952550180111",
+    "pgbench_branches": "50:27879211453831347146",
+    "pgbench_history": "20000:11518586180907135674336",
+    "pgbench_tellers": "500:289335802583756475060"
    },
-   "db_bytes": 896185940,
+   "db_bytes": 896169556,
    "backups": {
     "pgit": {
-     "seconds": 2.021,
-     "repo_bytes": 86823217,
-     "packs": 77717641,
+     "seconds": 2.055,
+     "repo_bytes": 87064422,
+     "packs": 77958846,
      "index": 9105408
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 2.243,
-     "repo_bytes": 294463958
+     "seconds": 1.537,
+     "repo_bytes": 294194855
     },
     "pgit-dedup-only": {
-     "seconds": 2.937,
-     "repo_bytes": 122277857,
-     "packs": 113086265,
-     "index": 9191424
+     "seconds": 2.862,
+     "repo_bytes": 121714651,
+     "packs": 112588595,
+     "index": 9125888
     },
     "pgit-xor-only": {
-     "seconds": 2.904,
-     "repo_bytes": 89616576,
-     "packs": 80478233,
-     "index": 9138176
+     "seconds": 2.949,
+     "repo_bytes": 89306299,
+     "packs": 80204820,
+     "index": 9101312
     },
     "pgit-zdict-only": {
-     "seconds": 2.968,
-     "repo_bytes": 87173631,
-     "packs": 78080342,
-     "index": 9093120
+     "seconds": 2.998,
+     "repo_bytes": 86912569,
+     "packs": 77806992,
+     "index": 9105408
     },
     "pgit-auto-from-tar": {
-     "seconds": 2.882,
-     "repo_bytes": 87032038,
-     "packs": 77901886,
-     "index": 9129984
+     "seconds": 2.966,
+     "repo_bytes": 86663545,
+     "packs": 77627601,
+     "index": 9035776
     },
     "pgit-auto-depth2": {
-     "seconds": 2.929,
-     "repo_bytes": 87227228,
-     "packs": 78097076,
-     "index": 9129984
+     "seconds": 2.983,
+     "repo_bytes": 86871139,
+     "packs": 77810619,
+     "index": 9060352
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 2.437,
-     "repo_bytes": 172585053,
-     "backup": 172585053,
-     "wal_archive": 123767101
+     "seconds": 2.825,
+     "repo_bytes": 172554643,
+     "backup": 172554643,
+     "wal_archive": 123722918
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.066,
-     "repo_bytes": 120825021,
-     "backup": 120825021,
-     "wal_archive": 123768821
+     "seconds": 3.16,
+     "repo_bytes": 120417424,
+     "backup": 120417424,
+     "wal_archive": 123724638
     },
     "restic (on plain basebackup)": {
-     "seconds": 0.966,
-     "repo_bytes": 141403968
+     "seconds": 1.031,
+     "repo_bytes": 141347792
     },
     "git (on plain basebackup)": {
-     "seconds": 3.418,
-     "repo_bytes": 214793157
+     "seconds": 3.416,
+     "repo_bytes": 214786718
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 2.338,
-     "repo_bytes": 59016549
+     "seconds": 2.098,
+     "repo_bytes": 59000947
     }
    },
-   "stage_seconds": 0.7497203350067139
+   "stage_seconds": 0.7636754512786865
   },
   {
    "v": 7,
    "step": "pgbench 4x2500 tx",
    "checksums": {
-    "events": "200000:115424921389917874825891",
-    "pgbench_accounts": "5000000:2882406675390359265792986",
-    "pgbench_branches": "50:26496476090673188050",
-    "pgbench_history": "30000:17255655825807598373887",
-    "pgbench_tellers": "500:283370947756654918840"
+    "events": "200000:115129903552933042993849",
+    "pgbench_accounts": "5000000:2882681854665166660226159",
+    "pgbench_branches": "50:31429294598932006084",
+    "pgbench_history": "30000:17291266425483462779877",
+    "pgbench_tellers": "500:279529366616898113683"
    },
-   "db_bytes": 897726036,
+   "db_bytes": 897742420,
    "backups": {
     "pgit": {
-     "seconds": 5.063,
-     "repo_bytes": 91324964,
-     "packs": 81277308,
-     "index": 10047488
+     "seconds": 5.241,
+     "repo_bytes": 91680758,
+     "packs": 81551182,
+     "index": 10129408
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 2.029,
-     "repo_bytes": 352983927
+     "seconds": 1.619,
+     "repo_bytes": 352710990
     },
     "pgit-dedup-only": {
-     "seconds": 3.731,
-     "repo_bytes": 139575562,
-     "packs": 129343586,
-     "index": 10231808
+     "seconds": 3.703,
+     "repo_bytes": 139200601,
+     "packs": 129079217,
+     "index": 10121216
     },
     "pgit-xor-only": {
-     "seconds": 4.874,
-     "repo_bytes": 95291551,
-     "packs": 85190648,
-     "index": 10100736
-    },
-    "pgit-zdict-only": {
-     "seconds": 5.135,
-     "repo_bytes": 91901586,
-     "packs": 81812969,
+     "seconds": 4.851,
+     "repo_bytes": 95056284,
+     "packs": 84967669,
      "index": 10088448
     },
+    "pgit-zdict-only": {
+     "seconds": 5.272,
+     "repo_bytes": 91634385,
+     "packs": 81562152,
+     "index": 10072064
+    },
     "pgit-auto-from-tar": {
-     "seconds": 5.881,
-     "repo_bytes": 91489853,
-     "packs": 81454485,
-     "index": 10035200
+     "seconds": 5.568,
+     "repo_bytes": 91293178,
+     "packs": 81212754,
+     "index": 10080256
     },
     "pgit-auto-depth2": {
-     "seconds": 5.536,
-     "repo_bytes": 95741427,
-     "packs": 85706059,
-     "index": 10035200
+     "seconds": 5.757,
+     "repo_bytes": 95516921,
+     "packs": 85469265,
+     "index": 10047488
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 3.434,
-     "repo_bytes": 219979433,
-     "backup": 219979433,
-     "wal_archive": 141014590
+     "seconds": 4.303,
+     "repo_bytes": 219933704,
+     "backup": 219933704,
+     "wal_archive": 141164564
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 4.065,
-     "repo_bytes": 156102962,
-     "backup": 156102962,
-     "wal_archive": 141016258
+     "seconds": 3.921,
+     "repo_bytes": 155951513,
+     "backup": 155951513,
+     "wal_archive": 141166284
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.709,
-     "repo_bytes": 187562897
+     "seconds": 1.752,
+     "repo_bytes": 187847907
     },
     "git (on plain basebackup)": {
-     "seconds": 4.533,
-     "repo_bytes": 272899664
+     "seconds": 4.726,
+     "repo_bytes": 272911657
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 1.94,
-     "repo_bytes": 74925574
+     "seconds": 1.97,
+     "repo_bytes": 74902548
     }
    },
-   "stage_seconds": 0.9104857444763184
+   "stage_seconds": 0.876976728439331
   },
   {
    "v": 8,
    "step": "delete 20% events + vacuum",
    "checksums": {
-    "events": "160000:92340426151115889455034",
-    "pgbench_accounts": "5000000:2882406675390359265792986",
-    "pgbench_branches": "50:26496476090673188050",
-    "pgbench_history": "30000:17255655825807598373887",
-    "pgbench_tellers": "500:283370947756654918840"
+    "events": "160000:92185550522304886897973",
+    "pgbench_accounts": "5000000:2882681854665166660226159",
+    "pgbench_branches": "50:31429294598932006084",
+    "pgbench_history": "30000:17291266425483462779877",
+    "pgbench_tellers": "500:279529366616898113683"
    },
-   "db_bytes": 897734228,
+   "db_bytes": 897750612,
    "backups": {
     "pgit": {
-     "seconds": 3.209,
-     "repo_bytes": 93520571,
-     "packs": 83169811,
-     "index": 10350592
+     "seconds": 3.18,
+     "repo_bytes": 93859831,
+     "packs": 83443535,
+     "index": 10416128
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.814,
-     "repo_bytes": 410202865
+     "seconds": 1.569,
+     "repo_bytes": 409922669
     },
     "pgit-dedup-only": {
-     "seconds": 3.136,
-     "repo_bytes": 148089089,
-     "packs": 137574489,
-     "index": 10514432
+     "seconds": 3.171,
+     "repo_bytes": 147771952,
+     "packs": 137314696,
+     "index": 10457088
     },
     "pgit-xor-only": {
-     "seconds": 3.586,
-     "repo_bytes": 103296844,
-     "packs": 92884645,
-     "index": 10412032
+     "seconds": 3.731,
+     "repo_bytes": 103046600,
+     "packs": 92663073,
+     "index": 10383360
     },
     "pgit-zdict-only": {
-     "seconds": 3.815,
-     "repo_bytes": 94061293,
-     "packs": 83698244,
-     "index": 10362880
+     "seconds": 3.889,
+     "repo_bytes": 93757075,
+     "packs": 83447274,
+     "index": 10309632
     },
     "pgit-auto-from-tar": {
-     "seconds": 4.157,
-     "repo_bytes": 93694594,
-     "packs": 83339738,
-     "index": 10354688
+     "seconds": 4.107,
+     "repo_bytes": 93448642,
+     "packs": 83097882,
+     "index": 10350592
     },
     "pgit-auto-depth2": {
-     "seconds": 4.226,
-     "repo_bytes": 97949653,
-     "packs": 87611181,
-     "index": 10338304
+     "seconds": 4.109,
+     "repo_bytes": 97629358,
+     "packs": 87368710,
+     "index": 10260480
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 2.343,
-     "repo_bytes": 227246351,
-     "backup": 227246351,
-     "wal_archive": 149418285
+     "seconds": 3.137,
+     "repo_bytes": 227198824,
+     "backup": 227198824,
+     "wal_archive": 149567229
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.064,
-     "repo_bytes": 163085875,
-     "backup": 163085875,
-     "wal_archive": 149420038
+     "seconds": 2.976,
+     "repo_bytes": 162934188,
+     "backup": 162934188,
+     "wal_archive": 149568949
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.099,
-     "repo_bytes": 194610583
+     "seconds": 1.209,
+     "repo_bytes": 195166331
     },
     "git (on plain basebackup)": {
-     "seconds": 3.74,
-     "repo_bytes": 281039640
+     "seconds": 3.76,
+     "repo_bytes": 281049972
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 1.961,
-     "repo_bytes": 89744474
+     "seconds": 2.079,
+     "repo_bytes": 89717370
     }
    },
-   "stage_seconds": 0.7871577739715576
+   "stage_seconds": 0.6840720176696777
   },
   {
    "v": 9,
    "step": "create small audit table",
    "checksums": {
-    "audit": "1000:570051867416152473027",
-    "events": "160000:92340426151115889455034",
-    "pgbench_accounts": "5000000:2882406675390359265792986",
-    "pgbench_branches": "50:26496476090673188050",
-    "pgbench_history": "30000:17255655825807598373887",
-    "pgbench_tellers": "500:283370947756654918840"
+    "audit": "1000:573226137860337005383",
+    "events": "160000:92185550522304886897973",
+    "pgbench_accounts": "5000000:2882681854665166660226159",
+    "pgbench_branches": "50:31429294598932006084",
+    "pgbench_history": "30000:17291266425483462779877",
+    "pgbench_tellers": "500:279529366616898113683"
    },
-   "db_bytes": 897881684,
+   "db_bytes": 897898068,
    "backups": {
     "pgit": {
-     "seconds": 2.013,
-     "repo_bytes": 93558016,
-     "packs": 83207256,
-     "index": 10350592
+     "seconds": 2.11,
+     "repo_bytes": 93897299,
+     "packs": 83481003,
+     "index": 10416128
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.763,
-     "repo_bytes": 467445822
+     "seconds": 2.224,
+     "repo_bytes": 467155708
     },
     "pgit-dedup-only": {
-     "seconds": 2.918,
-     "repo_bytes": 148237297,
-     "packs": 137718601,
-     "index": 10518528
+     "seconds": 2.955,
+     "repo_bytes": 147920039,
+     "packs": 137458687,
+     "index": 10461184
     },
     "pgit-xor-only": {
-     "seconds": 2.899,
-     "repo_bytes": 103398117,
-     "packs": 92985918,
-     "index": 10412032
+     "seconds": 2.999,
+     "repo_bytes": 103160072,
+     "packs": 92764257,
+     "index": 10395648
     },
     "pgit-zdict-only": {
-     "seconds": 2.924,
-     "repo_bytes": 94088966,
-     "packs": 83725917,
-     "index": 10362880
+     "seconds": 2.936,
+     "repo_bytes": 93784792,
+     "packs": 83474991,
+     "index": 10309632
     },
     "pgit-auto-from-tar": {
-     "seconds": 2.944,
-     "repo_bytes": 93722216,
-     "packs": 83367360,
-     "index": 10354688
+     "seconds": 2.906,
+     "repo_bytes": 93476299,
+     "packs": 83125539,
+     "index": 10350592
     },
     "pgit-auto-depth2": {
-     "seconds": 2.846,
-     "repo_bytes": 97984131,
-     "packs": 87641563,
-     "index": 10342400
+     "seconds": 2.804,
+     "repo_bytes": 97663870,
+     "packs": 87399126,
+     "index": 10264576
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 2.443,
-     "repo_bytes": 228133317,
-     "backup": 228133317,
-     "wal_archive": 149510440
+     "seconds": 2.584,
+     "repo_bytes": 228085519,
+     "backup": 228085519,
+     "wal_archive": 149659401
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.064,
-     "repo_bytes": 163814352,
-     "backup": 163814352,
-     "wal_archive": 149512161
+     "seconds": 2.973,
+     "repo_bytes": 163662528,
+     "backup": 163662528,
+     "wal_archive": 149661121
     },
     "restic (on plain basebackup)": {
-     "seconds": 0.961,
-     "repo_bytes": 195026839
+     "seconds": 0.987,
+     "repo_bytes": 195582239
     },
     "git (on plain basebackup)": {
-     "seconds": 3.411,
-     "repo_bytes": 281447243
+     "seconds": 3.379,
+     "repo_bytes": 281457440
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 2.27,
-     "repo_bytes": 104567712
+     "seconds": 2.062,
+     "repo_bytes": 104536531
     }
    },
-   "stage_seconds": 0.7777376174926758
+   "stage_seconds": 0.7808337211608887
   },
   {
    "v": 10,
    "step": "pgbench 4x2500 tx",
    "checksums": {
-    "audit": "1000:570051867416152473027",
-    "events": "160000:92340426151115889455034",
-    "pgbench_accounts": "5000000:2882358622454969106055218",
-    "pgbench_branches": "50:30465132374994319317",
-    "pgbench_history": "40000:23064261521703182215228",
-    "pgbench_tellers": "500:299218353254981260004"
+    "audit": "1000:573226137860337005383",
+    "events": "160000:92185550522304886897973",
+    "pgbench_accounts": "5000000:2882652486447230303186237",
+    "pgbench_branches": "50:30473443767653616781",
+    "pgbench_history": "40000:23072288073892653838784",
+    "pgbench_tellers": "500:284136874667296238226"
    },
-   "db_bytes": 899307092,
+   "db_bytes": 899323476,
    "backups": {
     "pgit": {
-     "seconds": 5.048,
-     "repo_bytes": 98294917,
-     "packs": 87010269,
-     "index": 11284480
+     "seconds": 5.174,
+     "repo_bytes": 98312935,
+     "packs": 86995519,
+     "index": 11317248
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.628,
-     "repo_bytes": 525324414
+     "seconds": 2.156,
+     "repo_bytes": 525027882
     },
     "pgit-dedup-only": {
-     "seconds": 3.717,
-     "repo_bytes": 164957552,
-     "packs": 153525448,
-     "index": 11431936
+     "seconds": 3.626,
+     "repo_bytes": 164513976,
+     "packs": 153114640,
+     "index": 11399168
     },
     "pgit-xor-only": {
-     "seconds": 4.957,
-     "repo_bytes": 109137553,
-     "packs": 97684970,
-     "index": 11452416
+     "seconds": 4.834,
+     "repo_bytes": 108769847,
+     "packs": 97390992,
+     "index": 11378688
     },
     "pgit-zdict-only": {
-     "seconds": 5.61,
-     "repo_bytes": 98825756,
-     "packs": 87487859,
-     "index": 11337728
+     "seconds": 4.95,
+     "repo_bytes": 98552246,
+     "packs": 87202061,
+     "index": 11350016
     },
     "pgit-auto-from-tar": {
-     "seconds": 5.987,
-     "repo_bytes": 98244686,
-     "packs": 86902694,
-     "index": 11341824
+     "seconds": 5.476,
+     "repo_bytes": 97975029,
+     "packs": 86624845,
+     "index": 11350016
     },
     "pgit-auto-depth2": {
-     "seconds": 5.51,
-     "repo_bytes": 105088395,
-     "packs": 93803747,
-     "index": 11284480
+     "seconds": 5.317,
+     "repo_bytes": 104784812,
+     "packs": 93475588,
+     "index": 11309056
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 4.266,
-     "repo_bytes": 276211949,
-     "backup": 276211949,
-     "wal_archive": 166522180
+     "seconds": 3.95,
+     "repo_bytes": 276167374,
+     "backup": 276167374,
+     "wal_archive": 166290572
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 4.097,
-     "repo_bytes": 199422827,
-     "backup": 199422827,
-     "wal_archive": 166523901
+     "seconds": 4.155,
+     "repo_bytes": 198815665,
+     "backup": 198815665,
+     "wal_archive": 166292325
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.805,
-     "repo_bytes": 242053186
+     "seconds": 1.815,
+     "repo_bytes": 243368767
     },
     "git (on plain basebackup)": {
-     "seconds": 4.602,
-     "repo_bytes": 340332412
+     "seconds": 4.621,
+     "repo_bytes": 340435342
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 2.053,
-     "repo_bytes": 119754003
+     "seconds": 2.023,
+     "repo_bytes": 119731582
     }
    },
-   "stage_seconds": 1.060180902481079
+   "stage_seconds": 0.9377889633178711
   },
   {
    "v": 11,
    "step": "VACUUM FULL events (table rewrite)",
    "checksums": {
-    "audit": "1000:570051867416152473027",
-    "events": "160000:92340426151115889455034",
-    "pgbench_accounts": "5000000:2882358622454969106055218",
-    "pgbench_branches": "50:30465132374994319317",
-    "pgbench_history": "40000:23064261521703182215228",
-    "pgbench_tellers": "500:299218353254981260004"
+    "audit": "1000:573226137860337005383",
+    "events": "160000:92185550522304886897973",
+    "pgbench_accounts": "5000000:2882652486447230303186237",
+    "pgbench_branches": "50:30473443767653616781",
+    "pgbench_history": "40000:23072288073892653838784",
+    "pgbench_tellers": "500:284136874667296238226"
    },
-   "db_bytes": 892089940,
+   "db_bytes": 892098132,
    "backups": {
     "pgit": {
-     "seconds": 2.504,
-     "repo_bytes": 105636120,
-     "packs": 94109808,
-     "index": 11526144
+     "seconds": 2.313,
+     "repo_bytes": 105613186,
+     "packs": 94078682,
+     "index": 11534336
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 2.233,
-     "repo_bytes": 582813132
+     "seconds": 2.161,
+     "repo_bytes": 582520251
     },
     "pgit-dedup-only": {
-     "seconds": 3.175,
-     "repo_bytes": 172346033,
-     "packs": 160713225,
-     "index": 11632640
+     "seconds": 3.221,
+     "repo_bytes": 171906970,
+     "packs": 160294642,
+     "index": 11612160
     },
     "pgit-xor-only": {
-     "seconds": 3.409,
-     "repo_bytes": 116486208,
-     "packs": 104828825,
-     "index": 11657216
+     "seconds": 3.227,
+     "repo_bytes": 116133393,
+     "packs": 104537450,
+     "index": 11595776
     },
     "pgit-zdict-only": {
-     "seconds": 3.234,
-     "repo_bytes": 106135033,
-     "packs": 94559568,
-     "index": 11575296
+     "seconds": 3.273,
+     "repo_bytes": 105827208,
+     "packs": 94276319,
+     "index": 11550720
     },
     "pgit-auto-from-tar": {
-     "seconds": 3.226,
-     "repo_bytes": 105558018,
-     "packs": 93974362,
-     "index": 11583488
+     "seconds": 3.105,
+     "repo_bytes": 105245857,
+     "packs": 93699065,
+     "index": 11546624
     },
     "pgit-auto-depth2": {
-     "seconds": 3.219,
-     "repo_bytes": 112422966,
-     "packs": 100896654,
-     "index": 11526144
+     "seconds": 3.087,
+     "repo_bytes": 112055027,
+     "packs": 100565579,
+     "index": 11489280
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 2.736,
-     "repo_bytes": 283241097,
-     "backup": 283241097,
-     "wal_archive": 172804019
+     "seconds": 2.553,
+     "repo_bytes": 283193248,
+     "backup": 283193248,
+     "wal_archive": 172562204
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 3.051,
-     "repo_bytes": 206129498,
-     "backup": 206129498,
-     "wal_archive": 172805739
+     "seconds": 2.981,
+     "repo_bytes": 205512547,
+     "backup": 205512547,
+     "wal_archive": 172563919
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.151,
-     "repo_bytes": 248997016
+     "seconds": 1.054,
+     "repo_bytes": 249799620
     },
     "git (on plain basebackup)": {
-     "seconds": 3.764,
-     "repo_bytes": 348202923
+     "seconds": 3.924,
+     "repo_bytes": 347477987
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 2.063,
-     "repo_bytes": 134940294
+     "seconds": 1.911,
+     "repo_bytes": 134926633
     }
    },
-   "stage_seconds": 0.7784452438354492
+   "stage_seconds": 0.7181358337402344
   },
   {
    "v": 12,
    "step": "pgbench 4x2500 tx",
    "checksums": {
-    "audit": "1000:570051867416152473027",
-    "events": "160000:92340426151115889455034",
-    "pgbench_accounts": "5000000:2882377458962811773415931",
-    "pgbench_branches": "50:28595739808275553836",
-    "pgbench_history": "50000:28789053369460648728887",
-    "pgbench_tellers": "500:292973094471537137074"
+    "audit": "1000:573226137860337005383",
+    "events": "160000:92185550522304886897973",
+    "pgbench_accounts": "5000000:2882683335573563921126544",
+    "pgbench_branches": "50:30984815544645014923",
+    "pgbench_history": "50000:28879230657831055984528",
+    "pgbench_tellers": "500:285861477158927748142"
    },
-   "db_bytes": 893417044,
+   "db_bytes": 893433428,
    "backups": {
     "pgit": {
-     "seconds": 5.127,
-     "repo_bytes": 109998771,
-     "packs": 97518091,
-     "index": 12480512
+     "seconds": 5.032,
+     "repo_bytes": 109933580,
+     "packs": 97481572,
+     "index": 12451840
     },
     "pg_basebackup (full, zstd)": {
-     "seconds": 1.745,
-     "repo_bytes": 640870658
+     "seconds": 1.961,
+     "repo_bytes": 640594239
     },
     "pgit-dedup-only": {
-     "seconds": 3.686,
-     "repo_bytes": 188211042,
-     "packs": 175570618,
-     "index": 12640256
+     "seconds": 3.545,
+     "repo_bytes": 187973046,
+     "packs": 175353102,
+     "index": 12619776
     },
     "pgit-xor-only": {
-     "seconds": 5.124,
-     "repo_bytes": 121842794,
-     "packs": 109272003,
-     "index": 12570624
+     "seconds": 4.919,
+     "repo_bytes": 121602976,
+     "packs": 109023993,
+     "index": 12578816
     },
     "pgit-zdict-only": {
-     "seconds": 5.285,
-     "repo_bytes": 110673393,
-     "packs": 98233672,
-     "index": 12439552
+     "seconds": 5.142,
+     "repo_bytes": 110375491,
+     "packs": 97943962,
+     "index": 12431360
     },
     "pgit-auto-from-tar": {
-     "seconds": 6.07,
-     "repo_bytes": 109818769,
-     "packs": 97374953,
-     "index": 12443648
+     "seconds": 5.509,
+     "repo_bytes": 109579480,
+     "packs": 97094704,
+     "index": 12484608
     },
     "pgit-auto-depth2": {
-     "seconds": 5.626,
-     "repo_bytes": 119959904,
-     "packs": 107524280,
-     "index": 12435456
+     "seconds": 5.908,
+     "repo_bytes": 119550588,
+     "packs": 107127252,
+     "index": 12423168
     },
     "pgBackRest (file incr, zst)": {
-     "seconds": 3.695,
-     "repo_bytes": 331873160,
-     "backup": 331873160,
-     "wal_archive": 188956172
+     "seconds": 4.257,
+     "repo_bytes": 331846688,
+     "backup": 331846688,
+     "wal_archive": 189009605
     },
     "pgBackRest (block incr, zst)": {
-     "seconds": 4.326,
-     "repo_bytes": 241084188,
-     "backup": 241084188,
-     "wal_archive": 188957893
+     "seconds": 4.055,
+     "repo_bytes": 240713778,
+     "backup": 240713778,
+     "wal_archive": 189011325
     },
     "restic (on plain basebackup)": {
-     "seconds": 1.683,
-     "repo_bytes": 297659823
+     "seconds": 1.867,
+     "repo_bytes": 297100026
     },
     "git (on plain basebackup)": {
-     "seconds": 4.518,
-     "repo_bytes": 407661497
+     "seconds": 4.583,
+     "repo_bytes": 406976203
     },
     "pg_dump (logical, zstd)": {
-     "seconds": 2.052,
-     "repo_bytes": 150492504
+     "seconds": 2.011,
+     "repo_bytes": 150485163
     }
    },
-   "stage_seconds": 0.816415548324585
+   "stage_seconds": 0.8238022327423096
   }
  ],
  "restores": [
   {
    "tool": "pgit",
    "v": 1,
-   "restore_seconds": 1.082,
+   "restore_seconds": 1.227,
    "pg_verifybackup": true,
-   "startup_seconds": 0.912,
+   "startup_seconds": 0.913,
    "checksums_match": true,
    "pg_checksums": true,
    "restored_bytes": 848930667
@@ -991,9 +991,9 @@
   {
    "tool": "pgit",
    "v": 2,
-   "restore_seconds": 1.265,
+   "restore_seconds": 1.345,
    "pg_verifybackup": true,
-   "startup_seconds": 0.81,
+   "startup_seconds": 0.811,
    "checksums_match": true,
    "pg_checksums": true,
    "restored_bytes": 850855943
@@ -1001,614 +1001,300 @@
   {
    "tool": "pgit",
    "v": 3,
-   "restore_seconds": 1.242,
+   "restore_seconds": 1.464,
    "pg_verifybackup": true,
-   "startup_seconds": 0.91,
+   "startup_seconds": 0.911,
    "checksums_match": true,
    "pg_checksums": true,
-   "restored_bytes": 888179005
+   "restored_bytes": 888162621
   },
   {
    "tool": "pgit",
    "v": 4,
-   "restore_seconds": 1.495,
+   "restore_seconds": 1.559,
    "pg_verifybackup": true,
-   "startup_seconds": 0.811,
+   "startup_seconds": 0.711,
    "checksums_match": true,
    "pg_checksums": true,
-   "restored_bytes": 889883485
-  },
-  {
-   "tool": "pgit",
-   "v": 5,
-   "restore_seconds": 1.454,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.912,
-   "checksums_match": true,
-   "pg_checksums": true,
-   "restored_bytes": 928959325
-  },
-  {
-   "tool": "pgit",
-   "v": 6,
-   "restore_seconds": 1.524,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.911,
-   "checksums_match": true,
-   "pg_checksums": true,
-   "restored_bytes": 930360503
-  },
-  {
-   "tool": "pgit",
-   "v": 7,
-   "restore_seconds": 1.852,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.911,
-   "checksums_match": true,
-   "pg_checksums": true,
-   "restored_bytes": 931941559
-  },
-  {
-   "tool": "pgit",
-   "v": 8,
-   "restore_seconds": 2.012,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.911,
-   "checksums_match": true,
-   "pg_checksums": true,
-   "restored_bytes": 931949751
-  },
-  {
-   "tool": "pgit",
-   "v": 9,
-   "restore_seconds": 1.934,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.91,
-   "checksums_match": true,
-   "pg_checksums": true,
-   "restored_bytes": 932098481
-  },
-  {
-   "tool": "pgit",
-   "v": 10,
-   "restore_seconds": 1.99,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.91,
-   "checksums_match": true,
-   "pg_checksums": true,
-   "restored_bytes": 933573043
-  },
-  {
-   "tool": "pgit",
-   "v": 11,
-   "restore_seconds": 2.228,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.913,
-   "checksums_match": true,
-   "pg_checksums": true,
-   "restored_bytes": 926347399
-  },
-  {
-   "tool": "pgit",
-   "v": 12,
-   "restore_seconds": 2.25,
-   "pg_verifybackup": true,
-   "startup_seconds": 0.911,
-   "checksums_match": true,
-   "pg_amcheck": true,
-   "pg_amcheck_seconds": 2.34,
-   "pg_checksums": true,
-   "restored_bytes": 927928665
-  },
-  {
-   "tool": "pg_basebackup (full, zstd)",
-   "v": 1,
-   "restore_seconds": 1.401,
-   "pg_verifybackup": true,
-   "startup_seconds": 1.016,
-   "checksums_match": true,
-   "restored_bytes": 848746876
-  },
-  {
-   "tool": "pg_basebackup (full, zstd)",
-   "v": 6,
-   "restore_seconds": 1.596,
-   "pg_verifybackup": true,
-   "startup_seconds": 1.113,
-   "checksums_match": true,
-   "restored_bytes": 930175947
-  },
-  {
-   "tool": "pg_basebackup (full, zstd)",
-   "v": 12,
-   "restore_seconds": 1.504,
-   "pg_verifybackup": true,
-   "startup_seconds": 1.213,
-   "checksums_match": true,
-   "pg_amcheck": true,
-   "pg_amcheck_seconds": 1.73,
-   "restored_bytes": 927743528
-  },
-  {
-   "tool": "pgBackRest (file incr, zst)",
-   "v": 1,
-   "restore_seconds": 1.387,
-   "startup_seconds": 0.309,
-   "checksums_match": true,
-   "restored_bytes": 899078968
-  },
-  {
-   "tool": "pgBackRest (file incr, zst)",
-   "v": 6,
-   "restore_seconds": 1.765,
-   "startup_seconds": 0.309,
-   "checksums_match": true,
-   "restored_bytes": 980508039
-  },
-  {
-   "tool": "pgBackRest (file incr, zst)",
-   "v": 12,
-   "restore_seconds": 1.847,
-   "startup_seconds": 0.309,
-   "checksums_match": true,
-   "pg_amcheck": true,
-   "pg_amcheck_seconds": 1.74,
-   "restored_bytes": 978075619
-  },
-  {
-   "tool": "pgBackRest (block incr, zst)",
-   "v": 1,
-   "restore_seconds": 1.641,
-   "startup_seconds": 0.31,
-   "checksums_match": true,
-   "restored_bytes": 882301752
-  },
-  {
-   "tool": "pgBackRest (block incr, zst)",
-   "v": 6,
-   "restore_seconds": 1.742,
-   "startup_seconds": 0.209,
-   "checksums_match": true,
-   "restored_bytes": 963730823
-  },
-  {
-   "tool": "pgBackRest (block incr, zst)",
-   "v": 12,
-   "restore_seconds": 1.669,
-   "startup_seconds": 0.31,
-   "checksums_match": true,
-   "pg_amcheck": true,
-   "pg_amcheck_seconds": 2.09,
-   "restored_bytes": 961298403
-  },
-  {
-   "tool": "restic (on plain basebackup)",
-   "v": 1,
-   "restore_seconds": 1.678,
-   "startup_seconds": 0.812,
-   "checksums_match": true,
-   "restored_bytes": 848930532
-  },
-  {
-   "tool": "restic (on plain basebackup)",
-   "v": 6,
-   "restore_seconds": 1.712,
-   "startup_seconds": 0.912,
-   "checksums_match": true,
-   "restored_bytes": 930360368
-  },
-  {
-   "tool": "restic (on plain basebackup)",
-   "v": 12,
-   "restore_seconds": 1.828,
-   "startup_seconds": 0.912,
-   "checksums_match": true,
-   "pg_amcheck": true,
-   "pg_amcheck_seconds": 1.75,
-   "restored_bytes": 927928530
-  },
-  {
-   "tool": "git (on plain basebackup)",
-   "v": 1,
-   "restore_seconds": 2.099,
-   "startup_seconds": 1.012,
-   "checksums_match": true,
-   "restored_bytes": 848930532
-  },
-  {
-   "tool": "git (on plain basebackup)",
-   "v": 6,
-   "restore_seconds": 2.058,
-   "startup_seconds": 1.01,
-   "checksums_match": true,
-   "restored_bytes": 930360368
-  },
-  {
-   "tool": "git (on plain basebackup)",
-   "v": 12,
-   "restore_seconds": 1.644,
-   "startup_seconds": 1.01,
-   "checksums_match": true,
-   "pg_amcheck": true,
-   "pg_amcheck_seconds": 2.32,
-   "restored_bytes": 927928530
-  },
-  {
-   "tool": "pg_dump (logical, zstd)",
-   "v": 1,
-   "restore_seconds": 5.322,
-   "startup_seconds": 0.0,
-   "checksums_match": true,
-   "restored_bytes": 1469675953
-  },
-  {
-   "tool": "pg_dump (logical, zstd)",
-   "v": 6,
-   "restore_seconds": 5.517,
-   "startup_seconds": 0.0,
-   "checksums_match": true,
-   "restored_bytes": 1543412342
-  },
-  {
-   "tool": "pg_dump (logical, zstd)",
-   "v": 12,
-   "restore_seconds": 5.349,
-   "startup_seconds": 0.0,
-   "checksums_match": true,
-   "pg_amcheck": true,
-   "pg_amcheck_seconds": 2.23,
-   "restored_bytes": 1538378184
+   "restored_bytes": 889858909
   }
  ],
- "corruption": {
-  "pgit": {
-   "detected": true,
-   "how": "pgit fsck",
-   "file": "pack-000001.pack",
-   "offset": 25193478,
-   "tool_output": "18 problems found",
-   "versions_affected": "12/12"
-  },
-  "pg_basebackup (full, zstd)": {
-   "detected": true,
-   "how": "pg_verifybackup after extraction",
-   "offset": 28936194
-  },
-  "pgBackRest (file incr, zst)": {
-   "detected": true,
-   "how": "pgbackrest verify (exit code 0, damage only in report)",
-   "exit_code": 0,
-   "file": "backup/bench/20261116-204803F_20261116-205634I/pg_data/base/16384/16397.zst",
-   "offset": 13750873,
-   "versions_affected": "1/12"
-  },
-  "pgBackRest (block incr, zst)": {
-   "detected": true,
-   "how": "pgbackrest verify (exit code 0, damage only in report)",
-   "exit_code": 0,
-   "file": "backup/bench/20261116-204807F_20261116-205251I/pg_data/base/16384/16405.pgbi",
-   "offset": 8780070,
-   "versions_affected": "1/12"
-  },
-  "restic (on plain basebackup)": {
-   "detected": true,
-   "how": "restic check --read-data",
-   "offset": 8434722
-  },
-  "git (on plain basebackup)": {
-   "detected": true,
-   "how": "git fsck --full",
-   "offset": 130596669
-  }
- },
+ "corruption": {},
  "log": [
-  "[20:47:10] initdb (scale 50, 12 versions)",
-  "[20:47:21] v1: pgbench -i -s 50; cluster 777 MiB",
-  "[20:47:28]    pgit                                  5.71s  repo      53.7 MiB",
-  "[20:47:29]    pg_basebackup (full, zstd)            1.24s  repo      37.3 MiB",
-  "[20:47:35]    pgit-dedup-only                       6.41s  repo      53.7 MiB",
-  "[20:47:42]    pgit-xor-only                         6.69s  repo      53.7 MiB",
-  "[20:47:49]    pgit-zdict-only                       6.68s  repo      53.7 MiB",
-  "[20:47:56]    pgit-auto-from-tar                    7.08s  repo      53.7 MiB",
-  "[20:48:03]    pgit-auto-depth2                      6.85s  repo      53.7 MiB",
-  "[20:48:07]    pgBackRest (file incr, zst)           4.03s  repo      38.0 MiB",
-  "[20:48:10]    pgBackRest (block incr, zst)          3.65s  repo      36.9 MiB",
-  "[20:48:12]    restic (on plain basebackup)          1.55s  repo      36.6 MiB",
-  "[20:48:17]    git (on plain basebackup)             4.08s  repo      43.7 MiB",
-  "[20:48:18]    pg_dump (logical, zstd)               1.74s  repo       3.9 MiB",
-  "[20:48:24] v2: pgbench 4x2500 tx; cluster 779 MiB",
-  "[20:48:29]    pgit                                  4.79s  repo      58.1 MiB",
-  "[20:48:31]    pg_basebackup (full, zstd)            1.47s  repo      76.8 MiB",
-  "[20:48:34]    pgit-dedup-only                       3.45s  repo      71.3 MiB",
-  "[20:48:39]    pgit-xor-only                         4.35s  repo      59.3 MiB",
-  "[20:48:44]    pgit-zdict-only                       4.88s  repo      58.4 MiB",
-  "[20:48:49]    pgit-auto-from-tar                    5.21s  repo      58.4 MiB",
-  "[20:48:54]    pgit-auto-depth2                      5.25s  repo      58.4 MiB",
-  "[20:48:58]    pgBackRest (file incr, zst)           3.81s  repo      74.4 MiB",
-  "[20:49:02]    pgBackRest (block incr, zst)          3.87s  repo      66.7 MiB",
-  "[20:49:04]    restic (on plain basebackup)          1.76s  repo      72.9 MiB",
-  "[20:49:08]    git (on plain basebackup)             4.10s  repo      88.4 MiB",
-  "[20:49:10]    pg_dump (logical, zstd)               1.75s  repo       7.9 MiB",
-  "[20:49:13] v3: bulk insert 200000 events; cluster 814 MiB",
-  "[20:49:17]    pgit                                  2.31s  repo      66.9 MiB",
-  "[20:49:18]    pg_basebackup (full, zstd)            1.50s  repo     123.4 MiB",
-  "[20:49:21]    pgit-dedup-only                       3.16s  repo      80.3 MiB",
-  "[20:49:24]    pgit-xor-only                         3.11s  repo      68.1 MiB",
-  "[20:49:28]    pgit-zdict-only                       3.11s  repo      67.1 MiB",
-  "[20:49:31]    pgit-auto-from-tar                    3.22s  repo      67.1 MiB",
-  "[20:49:34]    pgit-auto-depth2                      3.07s  repo      67.1 MiB",
-  "[20:49:36]    pgBackRest (file incr, zst)           2.61s  repo      82.4 MiB",
-  "[20:49:40]    pgBackRest (block incr, zst)          3.10s  repo      74.3 MiB",
-  "[20:49:41]    restic (on plain basebackup)          1.06s  repo      80.5 MiB",
-  "[20:49:45]    git (on plain basebackup)             3.31s  repo      96.6 MiB",
-  "[20:49:47]    pg_dump (logical, zstd)               1.89s  repo      17.1 MiB",
-  "[20:49:53] v4: pgbench 4x2500 tx; cluster 816 MiB",
-  "[20:50:00]    pgit                                  5.64s  repo      71.8 MiB",
-  "[20:50:01]    pg_basebackup (full, zstd)            1.55s  repo     170.9 MiB",
-  "[20:50:05]    pgit-dedup-only                       3.68s  repo     104.6 MiB",
-  "[20:50:10]    pgit-xor-only                         5.33s  repo      73.8 MiB",
-  "[20:50:16]    pgit-zdict-only                       5.80s  repo      72.1 MiB",
-  "[20:50:22]    pgit-auto-from-tar                    6.20s  repo      72.0 MiB",
-  "[20:50:29]    pgit-auto-depth2                      7.10s  repo      72.0 MiB",
-  "[20:50:33]    pgBackRest (file incr, zst)           3.75s  repo     119.5 MiB",
-  "[20:50:38]    pgBackRest (block incr, zst)          4.60s  repo     104.3 MiB",
-  "[20:50:40]    restic (on plain basebackup)          1.84s  repo     124.1 MiB",
-  "[20:50:45]    git (on plain basebackup)             4.40s  repo     149.5 MiB",
-  "[20:50:47]    pg_dump (logical, zstd)               2.04s  repo      26.6 MiB",
-  "[20:50:51] v5: update 250000 contiguous accounts; cluster 853 MiB",
-  "[20:50:55]    pgit                                  3.33s  repo      82.5 MiB",
-  "[20:50:57]    pg_basebackup (full, zstd)            1.56s  repo     225.7 MiB",
-  "[20:51:00]    pgit-dedup-only                       3.42s  repo     116.2 MiB",
-  "[20:51:04]    pgit-xor-only                         3.83s  repo      85.1 MiB",
-  "[20:51:08]    pgit-zdict-only                       3.83s  repo      82.8 MiB",
-  "[20:51:12]    pgit-auto-from-tar                    4.25s  repo      82.7 MiB",
-  "[20:51:16]    pgit-auto-depth2                      4.14s  repo      82.9 MiB",
-  "[20:51:20]    pgBackRest (file incr, zst)           4.00s  repo     163.6 MiB",
-  "[20:51:24]    pgBackRest (block incr, zst)          3.64s  repo     114.3 MiB",
-  "[20:51:26]    restic (on plain basebackup)          1.16s  repo     134.3 MiB",
-  "[20:51:31]    git (on plain basebackup)             4.63s  repo     204.1 MiB",
-  "[20:51:33]    pg_dump (logical, zstd)               2.04s  repo      41.5 MiB",
-  "[20:51:35] v6: create index on events; cluster 855 MiB",
-  "[20:51:38]    pgit                                  2.02s  repo      82.8 MiB",
-  "[20:51:40]    pg_basebackup (full, zstd)            2.24s  repo     280.8 MiB",
-  "[20:51:43]    pgit-dedup-only                       2.94s  repo     116.6 MiB",
-  "[20:51:46]    pgit-xor-only                         2.90s  repo      85.5 MiB",
-  "[20:51:49]    pgit-zdict-only                       2.97s  repo      83.1 MiB",
-  "[20:51:52]    pgit-auto-from-tar                    2.88s  repo      83.0 MiB",
-  "[20:51:55]    pgit-auto-depth2                      2.93s  repo      83.2 MiB",
-  "[20:51:57]    pgBackRest (file incr, zst)           2.44s  repo     164.6 MiB",
-  "[20:52:01]    pgBackRest (block incr, zst)          3.07s  repo     115.2 MiB",
-  "[20:52:02]    restic (on plain basebackup)          0.97s  repo     134.9 MiB",
-  "[20:52:06]    git (on plain basebackup)             3.42s  repo     204.8 MiB",
-  "[20:52:08]    pg_dump (logical, zstd)               2.34s  repo      56.3 MiB",
-  "[20:52:13] v7: pgbench 4x2500 tx; cluster 856 MiB",
-  "[20:52:20]    pgit                                  5.06s  repo      87.1 MiB",
-  "[20:52:22]    pg_basebackup (full, zstd)            2.03s  repo     336.6 MiB",
-  "[20:52:26]    pgit-dedup-only                       3.73s  repo     133.1 MiB",
-  "[20:52:31]    pgit-xor-only                         4.87s  repo      90.9 MiB",
-  "[20:52:36]    pgit-zdict-only                       5.14s  repo      87.6 MiB",
-  "[20:52:42]    pgit-auto-from-tar                    5.88s  repo      87.3 MiB",
-  "[20:52:47]    pgit-auto-depth2                      5.54s  repo      91.3 MiB",
-  "[20:52:51]    pgBackRest (file incr, zst)           3.43s  repo     209.8 MiB",
-  "[20:52:55]    pgBackRest (block incr, zst)          4.06s  repo     148.9 MiB",
-  "[20:52:57]    restic (on plain basebackup)          1.71s  repo     178.9 MiB",
-  "[20:53:02]    git (on plain basebackup)             4.53s  repo     260.3 MiB",
-  "[20:53:03]    pg_dump (logical, zstd)               1.94s  repo      71.5 MiB",
-  "[20:53:06] v8: delete 20% events + vacuum; cluster 856 MiB",
-  "[20:53:10]    pgit                                  3.21s  repo      89.2 MiB",
-  "[20:53:12]    pg_basebackup (full, zstd)            1.81s  repo     391.2 MiB",
-  "[20:53:15]    pgit-dedup-only                       3.14s  repo     141.2 MiB",
-  "[20:53:19]    pgit-xor-only                         3.59s  repo      98.5 MiB",
-  "[20:53:23]    pgit-zdict-only                       3.82s  repo      89.7 MiB",
-  "[20:53:27]    pgit-auto-from-tar                    4.16s  repo      89.4 MiB",
-  "[20:53:31]    pgit-auto-depth2                      4.23s  repo      93.4 MiB",
-  "[20:53:34]    pgBackRest (file incr, zst)           2.34s  repo     216.7 MiB",
-  "[20:53:37]    pgBackRest (block incr, zst)          3.06s  repo     155.5 MiB",
-  "[20:53:38]    restic (on plain basebackup)          1.10s  repo     185.6 MiB",
-  "[20:53:42]    git (on plain basebackup)             3.74s  repo     268.0 MiB",
-  "[20:53:44]    pg_dump (logical, zstd)               1.96s  repo      85.6 MiB",
-  "[20:53:46] v9: create small audit table; cluster 856 MiB",
-  "[20:53:50]    pgit                                  2.01s  repo      89.2 MiB",
-  "[20:53:51]    pg_basebackup (full, zstd)            1.76s  repo     445.8 MiB",
-  "[20:53:54]    pgit-dedup-only                       2.92s  repo     141.4 MiB",
-  "[20:53:57]    pgit-xor-only                         2.90s  repo      98.6 MiB",
-  "[20:54:00]    pgit-zdict-only                       2.92s  repo      89.7 MiB",
-  "[20:54:03]    pgit-auto-from-tar                    2.94s  repo      89.4 MiB",
-  "[20:54:06]    pgit-auto-depth2                      2.85s  repo      93.4 MiB",
-  "[20:54:08]    pgBackRest (file incr, zst)           2.44s  repo     217.6 MiB",
-  "[20:54:12]    pgBackRest (block incr, zst)          3.06s  repo     156.2 MiB",
-  "[20:54:13]    restic (on plain basebackup)          0.96s  repo     186.0 MiB",
-  "[20:54:17]    git (on plain basebackup)             3.41s  repo     268.4 MiB",
-  "[20:54:19]    pg_dump (logical, zstd)               2.27s  repo      99.7 MiB",
-  "[20:54:24] v10: pgbench 4x2500 tx; cluster 858 MiB",
-  "[20:54:31]    pgit                                  5.05s  repo      93.7 MiB",
-  "[20:54:32]    pg_basebackup (full, zstd)            1.63s  repo     501.0 MiB",
-  "[20:54:36]    pgit-dedup-only                       3.72s  repo     157.3 MiB",
-  "[20:54:41]    pgit-xor-only                         4.96s  repo     104.1 MiB",
-  "[20:54:47]    pgit-zdict-only                       5.61s  repo      94.2 MiB",
-  "[20:54:53]    pgit-auto-from-tar                    5.99s  repo      93.7 MiB",
-  "[20:54:58]    pgit-auto-depth2                      5.51s  repo     100.2 MiB",
-  "[20:55:02]    pgBackRest (file incr, zst)           4.27s  repo     263.4 MiB",
-  "[20:55:07]    pgBackRest (block incr, zst)          4.10s  repo     190.2 MiB",
-  "[20:55:09]    restic (on plain basebackup)          1.80s  repo     230.8 MiB",
-  "[20:55:14]    git (on plain basebackup)             4.60s  repo     324.6 MiB",
-  "[20:55:16]    pg_dump (logical, zstd)               2.05s  repo     114.2 MiB",
-  "[20:55:18] v11: VACUUM FULL events (table rewrite); cluster 851 MiB",
-  "[20:55:22]    pgit                                  2.50s  repo     100.7 MiB",
-  "[20:55:24]    pg_basebackup (full, zstd)            2.23s  repo     555.8 MiB",
-  "[20:55:28]    pgit-dedup-only                       3.18s  repo     164.4 MiB",
-  "[20:55:31]    pgit-xor-only                         3.41s  repo     111.1 MiB",
-  "[20:55:34]    pgit-zdict-only                       3.23s  repo     101.2 MiB",
-  "[20:55:38]    pgit-auto-from-tar                    3.23s  repo     100.7 MiB",
-  "[20:55:41]    pgit-auto-depth2                      3.22s  repo     107.2 MiB",
-  "[20:55:44]    pgBackRest (file incr, zst)           2.74s  repo     270.1 MiB",
-  "[20:55:47]    pgBackRest (block incr, zst)          3.05s  repo     196.6 MiB",
-  "[20:55:48]    restic (on plain basebackup)          1.15s  repo     237.5 MiB",
-  "[20:55:52]    git (on plain basebackup)             3.76s  repo     332.1 MiB",
-  "[20:55:54]    pg_dump (logical, zstd)               2.06s  repo     128.7 MiB",
-  "[20:56:00] v12: pgbench 4x2500 tx; cluster 852 MiB",
-  "[20:56:06]    pgit                                  5.13s  repo     104.9 MiB",
-  "[20:56:08]    pg_basebackup (full, zstd)            1.75s  repo     611.2 MiB",
-  "[20:56:11]    pgit-dedup-only                       3.69s  repo     179.5 MiB",
-  "[20:56:17]    pgit-xor-only                         5.12s  repo     116.2 MiB",
-  "[20:56:22]    pgit-zdict-only                       5.29s  repo     105.5 MiB",
-  "[20:56:28]    pgit-auto-from-tar                    6.07s  repo     104.7 MiB",
-  "[20:56:34]    pgit-auto-depth2                      5.63s  repo     114.4 MiB",
-  "[20:56:37]    pgBackRest (file incr, zst)           3.70s  repo     316.5 MiB",
-  "[20:56:42]    pgBackRest (block incr, zst)          4.33s  repo     229.9 MiB",
-  "[20:56:44]    restic (on plain basebackup)          1.68s  repo     283.9 MiB",
-  "[20:56:49]    git (on plain basebackup)             4.52s  repo     388.8 MiB",
-  "[20:56:51]    pg_dump (logical, zstd)               2.05s  repo     143.5 MiB",
-  "[20:56:51] git gc ...",
-  "[20:57:13]    git gc 22.9s -> 249.3 MiB",
-  "[20:57:19] restore pgit                               v1   1.082s + start 0.912s  match=True ",
-  "[20:57:24] restore pgit                               v2   1.265s + start 0.81s  match=True ",
-  "[20:57:30] restore pgit                               v3   1.242s + start 0.91s  match=True ",
-  "[20:57:35] restore pgit                               v4   1.495s + start 0.811s  match=True ",
-  "[20:57:41] restore pgit                               v5   1.454s + start 0.912s  match=True ",
-  "[20:57:47] restore pgit                               v6   1.524s + start 0.911s  match=True ",
-  "[20:57:53] restore pgit                               v7   1.852s + start 0.911s  match=True ",
-  "[20:57:59] restore pgit                               v8   2.012s + start 0.911s  match=True ",
-  "[20:58:06] restore pgit                               v9   1.934s + start 0.91s  match=True ",
-  "[20:58:12] restore pgit                               v10  1.99s + start 0.91s  match=True ",
-  "[20:58:19] restore pgit                               v11  2.228s + start 0.913s  match=True ",
-  "[20:58:27] restore pgit                               v12  2.25s + start 0.911s  match=True ",
-  "[20:58:33] restore pg_basebackup (full, zstd)         v1   1.401s + start 1.016s  match=True ",
-  "[20:58:39] restore pg_basebackup (full, zstd)         v6   1.596s + start 1.113s  match=True ",
-  "[20:58:47] restore pg_basebackup (full, zstd)         v12  1.504s + start 1.213s  match=True ",
-  "[20:58:51] restore pgBackRest (file incr, zst)        v1   1.387s + start 0.309s  match=True ",
-  "[20:58:56] restore pgBackRest (file incr, zst)        v6   1.765s + start 0.309s  match=True ",
-  "[20:59:03] restore pgBackRest (file incr, zst)        v12  1.847s + start 0.309s  match=True ",
-  "[20:59:08] restore pgBackRest (block incr, zst)       v1   1.641s + start 0.31s  match=True ",
-  "[20:59:13] restore pgBackRest (block incr, zst)       v6   1.742s + start 0.209s  match=True ",
-  "[20:59:20] restore pgBackRest (block incr, zst)       v12  1.669s + start 0.31s  match=True ",
-  "[20:59:25] restore restic (on plain basebackup)       v1   1.678s + start 0.812s  match=True ",
-  "[20:59:31] restore restic (on plain basebackup)       v6   1.712s + start 0.912s  match=True ",
-  "[20:59:38] restore restic (on plain basebackup)       v12  1.828s + start 0.912s  match=True ",
-  "[20:59:44] restore git (on plain basebackup)          v1   2.099s + start 1.012s  match=True ",
-  "[20:59:50] restore git (on plain basebackup)          v6   2.058s + start 1.01s  match=True ",
-  "[20:59:58] restore git (on plain basebackup)          v12  1.644s + start 1.01s  match=True ",
-  "[21:00:08] restore pg_dump (logical, zstd)            v1   5.322s + start 0.0s  match=True ",
-  "[21:00:18] restore pg_dump (logical, zstd)            v6   5.517s + start 0.0s  match=True ",
-  "[21:00:30] restore pg_dump (logical, zstd)            v12  5.349s + start 0.0s  match=True ",
-  "[21:00:42] pgit delta restore v12->v1 0.93s ok=True; v1->v12 1.77s ok=True",
-  "[21:01:33] corruption pgit                               detected=True pgit fsck",
-  "[21:01:34] corruption pg_basebackup (full, zstd)         detected=True pg_verifybackup after extraction",
-  "[21:01:35] corruption pgBackRest (file incr, zst)        detected=True pgbackrest verify (exit code 0, damage only in report)",
-  "[21:01:37] corruption pgBackRest (block incr, zst)       detected=True pgbackrest verify (exit code 0, damage only in report)",
-  "[21:01:41] corruption restic (on plain basebackup)       detected=True restic check --read-data",
-  "[21:01:57] corruption git (on plain basebackup)          detected=True git fsck --full"
+  "[21:03:52] initdb (scale 50, 12 versions)",
+  "[21:04:05] v1: pgbench -i -s 50; cluster 777 MiB",
+  "[21:04:13]    pgit                                  6.03s  repo      53.7 MiB",
+  "[21:04:14]    pg_basebackup (full, zstd)            1.82s  repo      37.3 MiB",
+  "[21:04:21]    pgit-dedup-only                       6.83s  repo      53.7 MiB",
+  "[21:04:28]    pgit-xor-only                         6.89s  repo      53.7 MiB",
+  "[21:04:35]    pgit-zdict-only                       6.99s  repo      53.7 MiB",
+  "[21:04:43]    pgit-auto-from-tar                    7.66s  repo      53.7 MiB",
+  "[21:04:50]    pgit-auto-depth2                      7.09s  repo      53.7 MiB",
+  "[21:04:53]    pgBackRest (file incr, zst)           3.65s  repo      38.0 MiB",
+  "[21:04:57]    pgBackRest (block incr, zst)          3.84s  repo      36.9 MiB",
+  "[21:05:00]    restic (on plain basebackup)          1.66s  repo      36.6 MiB",
+  "[21:05:04]    git (on plain basebackup)             4.02s  repo      43.7 MiB",
+  "[21:05:05]    pg_dump (logical, zstd)               1.79s  repo       3.9 MiB",
+  "[21:05:11] v2: pgbench 4x2500 tx; cluster 779 MiB",
+  "[21:05:17]    pgit                                  4.82s  repo      58.3 MiB",
+  "[21:05:18]    pg_basebackup (full, zstd)            1.73s  repo      76.6 MiB",
+  "[21:05:22]    pgit-dedup-only                       3.45s  repo      71.0 MiB",
+  "[21:05:26]    pgit-xor-only                         4.34s  repo      59.0 MiB",
+  "[21:05:31]    pgit-zdict-only                       5.00s  repo      58.1 MiB",
+  "[21:05:36]    pgit-auto-from-tar                    5.22s  repo      58.1 MiB",
+  "[21:05:42]    pgit-auto-depth2                      5.16s  repo      58.1 MiB",
+  "[21:05:46]    pgBackRest (file incr, zst)           4.38s  repo      74.4 MiB",
+  "[21:05:50]    pgBackRest (block incr, zst)          3.70s  repo      66.7 MiB",
+  "[21:05:52]    restic (on plain basebackup)          1.73s  repo      72.8 MiB",
+  "[21:05:56]    git (on plain basebackup)             4.09s  repo      88.4 MiB",
+  "[21:05:58]    pg_dump (logical, zstd)               1.84s  repo       7.9 MiB",
+  "[21:06:01] v3: bulk insert 200000 events; cluster 814 MiB",
+  "[21:06:05]    pgit                                  2.33s  repo      67.1 MiB",
+  "[21:06:07]    pg_basebackup (full, zstd)            2.09s  repo     123.2 MiB",
+  "[21:06:10]    pgit-dedup-only                       3.11s  repo      79.9 MiB",
+  "[21:06:13]    pgit-xor-only                         3.20s  repo      67.8 MiB",
+  "[21:06:17]    pgit-zdict-only                       3.20s  repo      66.9 MiB",
+  "[21:06:20]    pgit-auto-from-tar                    3.12s  repo      66.8 MiB",
+  "[21:06:23]    pgit-auto-depth2                      3.09s  repo      66.8 MiB",
+  "[21:06:25]    pgBackRest (file incr, zst)           2.65s  repo      82.4 MiB",
+  "[21:06:29]    pgBackRest (block incr, zst)          3.09s  repo      74.3 MiB",
+  "[21:06:30]    restic (on plain basebackup)          1.10s  repo      80.4 MiB",
+  "[21:06:34]    git (on plain basebackup)             3.48s  repo      96.6 MiB",
+  "[21:06:36]    pg_dump (logical, zstd)               1.91s  repo      17.1 MiB",
+  "[21:06:42] v4: pgbench 4x2500 tx; cluster 816 MiB",
+  "[21:06:49]    pgit                                  5.71s  repo      71.9 MiB",
+  "[21:06:51]    pg_basebackup (full, zstd)            1.54s  repo     170.6 MiB",
+  "[21:06:54]    pgit-dedup-only                       3.87s  repo     104.1 MiB",
+  "[21:07:00]    pgit-xor-only                         5.09s  repo      73.5 MiB",
+  "[21:07:05]    pgit-zdict-only                       5.91s  repo      71.9 MiB",
+  "[21:07:12]    pgit-auto-from-tar                    6.23s  repo      71.7 MiB",
+  "[21:07:18]    pgit-auto-depth2                      6.65s  repo      71.8 MiB",
+  "[21:07:22]    pgBackRest (file incr, zst)           3.94s  repo     119.5 MiB",
+  "[21:07:27]    pgBackRest (block incr, zst)          4.39s  repo     103.9 MiB",
+  "[21:07:29]    restic (on plain basebackup)          1.73s  repo     124.0 MiB",
+  "[21:07:34]    git (on plain basebackup)             4.56s  repo     149.5 MiB",
+  "[21:07:36]    pg_dump (logical, zstd)               1.88s  repo      26.6 MiB",
+  "[21:07:39] v5: update 250000 contiguous accounts; cluster 853 MiB",
+  "[21:07:44]    pgit                                  3.25s  repo      82.7 MiB",
+  "[21:07:45]    pg_basebackup (full, zstd)            1.69s  repo     225.5 MiB",
+  "[21:07:49]    pgit-dedup-only                       3.40s  repo     115.7 MiB",
+  "[21:07:53]    pgit-xor-only                         3.73s  repo      84.8 MiB",
+  "[21:07:57]    pgit-zdict-only                       3.94s  repo      82.6 MiB",
+  "[21:08:01]    pgit-auto-from-tar                    4.28s  repo      82.3 MiB",
+  "[21:08:05]    pgit-auto-depth2                      4.02s  repo      82.5 MiB",
+  "[21:08:08]    pgBackRest (file incr, zst)           3.46s  repo     163.6 MiB",
+  "[21:08:12]    pgBackRest (block incr, zst)          3.66s  repo     113.9 MiB",
+  "[21:08:14]    restic (on plain basebackup)          1.24s  repo     134.3 MiB",
+  "[21:08:19]    git (on plain basebackup)             4.55s  repo     204.1 MiB",
+  "[21:08:20]    pg_dump (logical, zstd)               1.92s  repo      41.5 MiB",
+  "[21:08:23] v6: create index on events; cluster 855 MiB",
+  "[21:08:26]    pgit                                  2.05s  repo      83.0 MiB",
+  "[21:08:28]    pg_basebackup (full, zstd)            1.54s  repo     280.6 MiB",
+  "[21:08:31]    pgit-dedup-only                       2.86s  repo     116.1 MiB",
+  "[21:08:34]    pgit-xor-only                         2.95s  repo      85.2 MiB",
+  "[21:08:37]    pgit-zdict-only                       3.00s  repo      82.9 MiB",
+  "[21:08:40]    pgit-auto-from-tar                    2.97s  repo      82.6 MiB",
+  "[21:08:43]    pgit-auto-depth2                      2.98s  repo      82.8 MiB",
+  "[21:08:45]    pgBackRest (file incr, zst)           2.82s  repo     164.6 MiB",
+  "[21:08:49]    pgBackRest (block incr, zst)          3.16s  repo     114.8 MiB",
+  "[21:08:50]    restic (on plain basebackup)          1.03s  repo     134.8 MiB",
+  "[21:08:54]    git (on plain basebackup)             3.42s  repo     204.8 MiB",
+  "[21:08:56]    pg_dump (logical, zstd)               2.10s  repo      56.3 MiB",
+  "[21:09:02] v7: pgbench 4x2500 tx; cluster 856 MiB",
+  "[21:09:09]    pgit                                  5.24s  repo      87.4 MiB",
+  "[21:09:10]    pg_basebackup (full, zstd)            1.62s  repo     336.4 MiB",
+  "[21:09:14]    pgit-dedup-only                       3.70s  repo     132.8 MiB",
+  "[21:09:19]    pgit-xor-only                         4.85s  repo      90.7 MiB",
+  "[21:09:24]    pgit-zdict-only                       5.27s  repo      87.4 MiB",
+  "[21:09:30]    pgit-auto-from-tar                    5.57s  repo      87.1 MiB",
+  "[21:09:36]    pgit-auto-depth2                      5.76s  repo      91.1 MiB",
+  "[21:09:40]    pgBackRest (file incr, zst)           4.30s  repo     209.7 MiB",
+  "[21:09:44]    pgBackRest (block incr, zst)          3.92s  repo     148.7 MiB",
+  "[21:09:46]    restic (on plain basebackup)          1.75s  repo     179.1 MiB",
+  "[21:09:51]    git (on plain basebackup)             4.73s  repo     260.3 MiB",
+  "[21:09:53]    pg_dump (logical, zstd)               1.97s  repo      71.4 MiB",
+  "[21:09:55] v8: delete 20% events + vacuum; cluster 856 MiB",
+  "[21:10:00]    pgit                                  3.18s  repo      89.5 MiB",
+  "[21:10:01]    pg_basebackup (full, zstd)            1.57s  repo     390.9 MiB",
+  "[21:10:05]    pgit-dedup-only                       3.17s  repo     140.9 MiB",
+  "[21:10:08]    pgit-xor-only                         3.73s  repo      98.3 MiB",
+  "[21:10:12]    pgit-zdict-only                       3.89s  repo      89.4 MiB",
+  "[21:10:16]    pgit-auto-from-tar                    4.11s  repo      89.1 MiB",
+  "[21:10:20]    pgit-auto-depth2                      4.11s  repo      93.1 MiB",
+  "[21:10:24]    pgBackRest (file incr, zst)           3.14s  repo     216.7 MiB",
+  "[21:10:27]    pgBackRest (block incr, zst)          2.98s  repo     155.4 MiB",
+  "[21:10:29]    restic (on plain basebackup)          1.21s  repo     186.1 MiB",
+  "[21:10:32]    git (on plain basebackup)             3.76s  repo     268.0 MiB",
+  "[21:10:34]    pg_dump (logical, zstd)               2.08s  repo      85.6 MiB",
+  "[21:10:37] v9: create small audit table; cluster 856 MiB",
+  "[21:10:40]    pgit                                  2.11s  repo      89.5 MiB",
+  "[21:10:42]    pg_basebackup (full, zstd)            2.22s  repo     445.5 MiB",
+  "[21:10:45]    pgit-dedup-only                       2.96s  repo     141.1 MiB",
+  "[21:10:48]    pgit-xor-only                         3.00s  repo      98.4 MiB",
+  "[21:10:51]    pgit-zdict-only                       2.94s  repo      89.4 MiB",
+  "[21:10:54]    pgit-auto-from-tar                    2.91s  repo      89.1 MiB",
+  "[21:10:57]    pgit-auto-depth2                      2.80s  repo      93.1 MiB",
+  "[21:11:00]    pgBackRest (file incr, zst)           2.58s  repo     217.5 MiB",
+  "[21:11:03]    pgBackRest (block incr, zst)          2.97s  repo     156.1 MiB",
+  "[21:11:04]    restic (on plain basebackup)          0.99s  repo     186.5 MiB",
+  "[21:11:08]    git (on plain basebackup)             3.38s  repo     268.4 MiB",
+  "[21:11:10]    pg_dump (logical, zstd)               2.06s  repo      99.7 MiB",
+  "[21:11:16] v10: pgbench 4x2500 tx; cluster 858 MiB",
+  "[21:11:22]    pgit                                  5.17s  repo      93.8 MiB",
+  "[21:11:24]    pg_basebackup (full, zstd)            2.16s  repo     500.7 MiB",
+  "[21:11:28]    pgit-dedup-only                       3.63s  repo     156.9 MiB",
+  "[21:11:33]    pgit-xor-only                         4.83s  repo     103.7 MiB",
+  "[21:11:38]    pgit-zdict-only                       4.95s  repo      94.0 MiB",
+  "[21:11:43]    pgit-auto-from-tar                    5.48s  repo      93.4 MiB",
+  "[21:11:49]    pgit-auto-depth2                      5.32s  repo      99.9 MiB",
+  "[21:11:53]    pgBackRest (file incr, zst)           3.95s  repo     263.4 MiB",
+  "[21:11:57]    pgBackRest (block incr, zst)          4.16s  repo     189.6 MiB",
+  "[21:11:59]    restic (on plain basebackup)          1.82s  repo     232.1 MiB",
+  "[21:12:04]    git (on plain basebackup)             4.62s  repo     324.7 MiB",
+  "[21:12:06]    pg_dump (logical, zstd)               2.02s  repo     114.2 MiB",
+  "[21:12:08] v11: VACUUM FULL events (table rewrite); cluster 851 MiB",
+  "[21:12:12]    pgit                                  2.31s  repo     100.7 MiB",
+  "[21:12:14]    pg_basebackup (full, zstd)            2.16s  repo     555.5 MiB",
+  "[21:12:17]    pgit-dedup-only                       3.22s  repo     163.9 MiB",
+  "[21:12:21]    pgit-xor-only                         3.23s  repo     110.8 MiB",
+  "[21:12:24]    pgit-zdict-only                       3.27s  repo     100.9 MiB",
+  "[21:12:27]    pgit-auto-from-tar                    3.11s  repo     100.4 MiB",
+  "[21:12:30]    pgit-auto-depth2                      3.09s  repo     106.9 MiB",
+  "[21:12:33]    pgBackRest (file incr, zst)           2.55s  repo     270.1 MiB",
+  "[21:12:36]    pgBackRest (block incr, zst)          2.98s  repo     196.0 MiB",
+  "[21:12:37]    restic (on plain basebackup)          1.05s  repo     238.2 MiB",
+  "[21:12:41]    git (on plain basebackup)             3.92s  repo     331.4 MiB",
+  "[21:12:43]    pg_dump (logical, zstd)               1.91s  repo     128.7 MiB",
+  "[21:12:48] v12: pgbench 4x2500 tx; cluster 852 MiB",
+  "[21:12:54]    pgit                                  5.03s  repo     104.8 MiB",
+  "[21:12:56]    pg_basebackup (full, zstd)            1.96s  repo     610.9 MiB",
+  "[21:13:00]    pgit-dedup-only                       3.54s  repo     179.3 MiB",
+  "[21:13:05]    pgit-xor-only                         4.92s  repo     116.0 MiB",
+  "[21:13:10]    pgit-zdict-only                       5.14s  repo     105.3 MiB",
+  "[21:13:16]    pgit-auto-from-tar                    5.51s  repo     104.5 MiB",
+  "[21:13:21]    pgit-auto-depth2                      5.91s  repo     114.0 MiB",
+  "[21:13:26]    pgBackRest (file incr, zst)           4.26s  repo     316.5 MiB",
+  "[21:13:30]    pgBackRest (block incr, zst)          4.06s  repo     229.6 MiB",
+  "[21:13:32]    restic (on plain basebackup)          1.87s  repo     283.3 MiB",
+  "[21:13:37]    git (on plain basebackup)             4.58s  repo     388.1 MiB",
+  "[21:13:39]    pg_dump (logical, zstd)               2.01s  repo     143.5 MiB",
+  "[21:13:39] git gc ...",
+  "[21:14:02]    git gc 22.7s -> 249.2 MiB",
+  "[21:14:07] restore pgit                               v1   1.227s + start 0.913s  match=True ",
+  "[21:14:12] restore pgit                               v2   1.345s + start 0.811s  match=True ",
+  "[21:14:18] restore pgit                               v3   1.464s + start 0.911s  match=True ",
+  "[21:14:23] restore pgit                               v4   1.559s + start 0.711s  match=True "
  ],
  "git_gc": {
-  "seconds": 22.87,
-  "repo_bytes": 261370266
+  "seconds": 22.67,
+  "repo_bytes": 261322495
  },
  "pgit_stats": {
   "commits": [
    {
     "seq": 1,
-    "id": "f83c39eccbedf8c94ce784e55663477ff32837facec85044bf28c9e262c81986",
-    "time": "2026-11-16T20:47:27+00:00",
+    "id": "60c34df9fc7598571e2e70427ccf7f995f8af38991d5fff9b667d05cfda779f9",
+    "time": "2026-11-16T21:04:12+00:00",
     "label": "v1",
     "logical_bytes": 831926404,
-    "added_bytes": 50380600
+    "added_bytes": 50380631
    },
    {
     "seq": 2,
-    "id": "3739a0a0ab185e8cf3fb39084708aa136c33fba2390c3768e0d889d0317a4ff7",
-    "time": "2026-11-16T20:48:29+00:00",
+    "id": "aad1f06720663145c35f1e2283487769eee92d33eb48a39f16a5720c422dff7e",
+    "time": "2026-11-16T21:05:17+00:00",
     "label": "v2",
-    "logical_bytes": 833810720,
-    "added_bytes": 3584428
+    "logical_bytes": 833802528,
+    "added_bytes": 3825840
    },
    {
     "seq": 3,
-    "id": "b4108a7c3f221900a0c187fabf78f476cfed01c0b11123ba1d8ad22f1d2f98c3",
-    "time": "2026-11-16T20:49:17+00:00",
+    "id": "64f858ee98f3a680a301f96266c5ca6a545eca07e1fb826f3646878f7cb3180d",
+    "time": "2026-11-16T21:06:05+00:00",
     "label": "v3",
-    "logical_bytes": 871133782,
-    "added_bytes": 8869373
+    "logical_bytes": 871117398,
+    "added_bytes": 8869461
    },
    {
     "seq": 4,
-    "id": "26b1ff9d3648435ef33807cdf6076e75b64d782a3f895fa4fbd66df618e8b321",
-    "time": "2026-11-16T20:50:00+00:00",
+    "id": "07db83e14f4a372c5be2fc2e6746b4783ba2aac12ecb73d9f924df7da48b4bfb",
+    "time": "2026-11-16T21:06:49+00:00",
     "label": "v4",
-    "logical_bytes": 872796908,
-    "added_bytes": 3928517
+    "logical_bytes": 872772332,
+    "added_bytes": 3915106
    },
    {
     "seq": 5,
-    "id": "6ab6bb5f3150af3ce8e01147e2e58b210c4ded153e146cb9d25fe30b5bbf183f",
-    "time": "2026-11-16T20:50:55+00:00",
+    "id": "11f50454f3d9ae64a6e8e82a5ca46f790a8bf2288b27c587508dedeaed142b8b",
+    "time": "2026-11-16T21:07:44+00:00",
     "label": "v5",
-    "logical_bytes": 911872748,
-    "added_bytes": 10603184
+    "logical_bytes": 911856364,
+    "added_bytes": 10616275
    },
    {
     "seq": 6,
-    "id": "48349d5d3d8eba37a628e7ff0eb17d88b6322bf06bf34fd8d933a8dbf1d73848",
-    "time": "2026-11-16T20:51:38+00:00",
+    "id": "f3a983907b2db83fad7fe2453d6740c0b02afd78641e5bd5732a399af57dff7d",
+    "time": "2026-11-16T21:08:26+00:00",
     "label": "v6",
-    "logical_bytes": 913273729,
-    "added_bytes": 313172
+    "logical_bytes": 913257345,
+    "added_bytes": 313159
    },
    {
     "seq": 7,
-    "id": "8ae347db3f2780279e77ece5f4bb9a92fdd2057681ea15500748bcc31b49e743",
-    "time": "2026-11-16T20:52:20+00:00",
+    "id": "3013faaa0f5793a8ec6a405df3cbdd8a76526e369c97b89b4650ea3d4d56a4c1",
+    "time": "2026-11-16T21:09:09+00:00",
     "label": "v7",
-    "logical_bytes": 914813825,
-    "added_bytes": 3553258
+    "logical_bytes": 914830209,
+    "added_bytes": 3585926
    },
    {
     "seq": 8,
-    "id": "9cf9dee58304654e91783cae99467fad48c6f18bafd59fd2defd4ca44ba6fc68",
-    "time": "2026-11-16T20:53:10+00:00",
+    "id": "d68184f9f37cba5b2f5c384f2c6e3e0d72a93d9a51af83ffa47b8aade0eaf632",
+    "time": "2026-11-16T21:10:00+00:00",
     "label": "v8",
-    "logical_bytes": 914822017,
-    "added_bytes": 1886100
+    "logical_bytes": 914838401,
+    "added_bytes": 1885945
    },
    {
     "seq": 9,
-    "id": "b69f306574a4a6c6a988bc3fd45c2b6f5c126e8f62de500110c27ae861bc0eae",
-    "time": "2026-11-16T20:53:50+00:00",
+    "id": "38d9c0f83af639ad0fe17e1d3085315ce89184d1eac190e466834af9e6e8e598",
+    "time": "2026-11-16T21:10:40+00:00",
     "label": "v9",
-    "logical_bytes": 914970353,
-    "added_bytes": 31005
+    "logical_bytes": 914986737,
+    "added_bytes": 31033
    },
    {
     "seq": 10,
-    "id": "e839410cc559a98d411874acf7f6ffad0b018b132bf38e4d990219d4a74cff12",
-    "time": "2026-11-16T20:54:31+00:00",
+    "id": "f2e2ac48928a24067b69202d2233c932fe011399c149f07d65bb43ec9210d6a8",
+    "time": "2026-11-16T21:11:22+00:00",
     "label": "v10",
-    "logical_bytes": 916412147,
-    "added_bytes": 3796553
+    "logical_bytes": 916420339,
+    "added_bytes": 3508059
    },
    {
     "seq": 11,
-    "id": "73af840d8b79d7330dc52de7e608007573197ef68d516546c2a9c40066b1ecd6",
-    "time": "2026-11-16T20:55:22+00:00",
+    "id": "a85b338be64f0a54244e0ea7c4baf5467a4c80558a043117e533b0e8e3dec851",
+    "time": "2026-11-16T21:12:12+00:00",
     "label": "v11",
-    "logical_bytes": 909186503,
-    "added_bytes": 7093098
+    "logical_bytes": 909194695,
+    "added_bytes": 7076726
    },
    {
     "seq": 12,
-    "id": "2c600deb07d7a68c2044b673fa48f98100457a69f22c6a56d15d80e9f30c0467",
-    "time": "2026-11-16T20:56:06+00:00",
+    "id": "3adb2c034b4833fe3f96d01626bbbbf83ebb39aabc2b2f782795c9c147d56c1d",
+    "time": "2026-11-16T21:12:54+00:00",
     "label": "v12",
-    "logical_bytes": 910513607,
-    "added_bytes": 3401845
+    "logical_bytes": 910529991,
+    "added_bytes": 3396450
    }
   ],
   "logical_bytes_all_versions": 10715532743,
   "disk": {
-   "packs": 97518091,
-   "index": 12513280,
-   "total": 110031371
+   "packs": 97481572,
+   "index": 12484608,
+   "total": 109966180
   },
-  "ratio": 97.39,
+  "ratio": 97.44,
   "encodings": {
    "blob/raw": {
     "objects": 3,
@@ -1617,33 +1303,33 @@
     "max_depth": 0
    },
    "blob/zstd": {
-    "objects": 5918,
-    "stored_bytes": 11578419,
-    "raw_bytes": 48448692,
+    "objects": 5902,
+    "stored_bytes": 11564517,
+    "raw_bytes": 48317620,
     "max_depth": 0
    },
    "blob/xor": {
-    "objects": 15214,
-    "stored_bytes": 2779463,
-    "raw_bytes": 124629809,
+    "objects": 15058,
+    "stored_bytes": 2760176,
+    "raw_bytes": 123351857,
     "max_depth": 8
    },
    "blob/zdict": {
-    "objects": 70541,
-    "stored_bytes": 8995734,
-    "raw_bytes": 577757509,
+    "objects": 70714,
+    "stored_bytes": 8970682,
+    "raw_bytes": 579174725,
     "max_depth": 8
    },
    "blob/tdict": {
-    "objects": 112177,
-    "stored_bytes": 58704671,
-    "raw_bytes": 918936167,
+    "objects": 112193,
+    "stored_bytes": 58724773,
+    "raw_bytes": 919067239,
     "max_depth": 0
    },
    "blocklist/raw": {
-    "objects": 528,
-    "stored_bytes": 3948224,
-    "raw_bytes": 3948224,
+    "objects": 527,
+    "stored_bytes": 3948032,
+    "raw_bytes": 3948032,
     "max_depth": 0
    },
    "blocklist/zstd": {
@@ -1653,39 +1339,33 @@
     "max_depth": 0
    },
    "blocklist/xor": {
-    "objects": 20,
-    "stored_bytes": 21573,
-    "raw_bytes": 64448,
+    "objects": 13,
+    "stored_bytes": 11599,
+    "raw_bytes": 36864,
     "max_depth": 8
    },
    "blocklist/zdict": {
-    "objects": 1948,
-    "stored_bytes": 2703405,
-    "raw_bytes": 15554080,
-    "max_depth": 7
+    "objects": 1964,
+    "stored_bytes": 2714095,
+    "raw_bytes": 15640128,
+    "max_depth": 8
    },
    "tree/zstd": {
     "objects": 2,
-    "stored_bytes": 140704,
+    "stored_bytes": 140731,
     "raw_bytes": 643954,
     "max_depth": 0
    },
-   "tree/xor": {
-    "objects": 1,
-    "stored_bytes": 2989,
-    "raw_bytes": 323118,
-    "max_depth": 7
-   },
    "tree/zdict": {
-    "objects": 9,
-    "stored_bytes": 82257,
-    "raw_bytes": 2905515,
+    "objects": 10,
+    "stored_bytes": 84718,
+    "raw_bytes": 3228633,
     "max_depth": 8
    },
    "commit/zstd": {
     "objects": 12,
-    "stored_bytes": 76718,
-    "raw_bytes": 507204,
+    "stored_bytes": 76721,
+    "raw_bytes": 507201,
     "max_depth": 0
    },
    "dict/zstd": {
@@ -1697,19 +1377,19 @@
   },
   "blob_delta_depth_histogram": {
    "0": 118098,
-   "1": 56068,
-   "2": 22402,
-   "3": 5982,
-   "4": 1140,
-   "5": 97,
+   "1": 56061,
+   "2": 22549,
+   "3": 5863,
+   "4": 1121,
+   "5": 114,
    "6": 27,
-   "7": 25,
-   "8": 14
+   "7": 24,
+   "8": 13
   }
  },
  "pgit_backup_stats": [
   {
-   "id": "f83c39eccbedf8c94ce784e55663477ff32837facec85044bf28c9e262c81986",
+   "id": "60c34df9fc7598571e2e70427ccf7f995f8af38991d5fff9b667d05cfda779f9",
    "seq": 1,
    "files": 1286,
    "dirs": 26,
@@ -1718,11 +1398,11 @@
    "unchanged_blocks": 0,
    "dedup_blocks": 3909,
    "new_blocks": 97659,
-   "seconds": 5.389,
+   "seconds": 5.681,
    "store": {
     "new_objects": 98075,
     "new_raw_bytes": 803501468,
-    "new_stored_bytes": 50380600,
+    "new_stored_bytes": 50380631,
     "kinds": {
      "raw": 414,
      "zstd": 501,
@@ -1732,152 +1412,152 @@
     },
     "kind_bytes": {
      "raw": 3093443,
-     "zstd": 944764,
+     "zstd": 944792,
      "xor": 0,
      "zdict": 0,
-     "tdict": 42252523
+     "tdict": 42252526
     }
    }
   },
   {
-   "id": "3739a0a0ab185e8cf3fb39084708aa136c33fba2390c3768e0d889d0317a4ff7",
+   "id": "aad1f06720663145c35f1e2283487769eee92d33eb48a39f16a5720c422dff7e",
    "seq": 2,
    "files": 1287,
    "dirs": 26,
-   "blocks": 101798,
-   "logical_bytes": 833810720,
-   "unchanged_blocks": 82999,
-   "dedup_blocks": 2050,
-   "new_blocks": 16749,
-   "seconds": 4.579,
+   "blocks": 101797,
+   "logical_bytes": 833802528,
+   "unchanged_blocks": 82994,
+   "dedup_blocks": 1961,
+   "new_blocks": 16842,
+   "seconds": 4.589,
    "store": {
-    "new_objects": 17132,
-    "new_raw_bytes": 140596103,
-    "new_stored_bytes": 3584428,
+    "new_objects": 17226,
+    "new_raw_bytes": 141358535,
+    "new_stored_bytes": 3825840,
     "kinds": {
      "raw": 1,
-     "zstd": 74,
-     "xor": 1923,
-     "zdict": 14400,
-     "tdict": 734
+     "zstd": 149,
+     "xor": 1975,
+     "zdict": 14390,
+     "tdict": 711
     },
     "kind_bytes": {
-     "raw": 2112,
-     "zstd": 225073,
-     "xor": 323687,
-     "zdict": 2018383,
-     "tdict": 298029
+     "raw": 2080,
+     "zstd": 467189,
+     "xor": 330296,
+     "zdict": 2007533,
+     "tdict": 300050
     }
    }
   },
   {
-   "id": "b4108a7c3f221900a0c187fabf78f476cfed01c0b11123ba1d8ad22f1d2f98c3",
+   "id": "64f858ee98f3a680a301f96266c5ca6a545eca07e1fb826f3646878f7cb3180d",
    "seq": 3,
    "files": 1289,
    "dirs": 26,
-   "blocks": 106354,
-   "logical_bytes": 871133782,
-   "unchanged_blocks": 99602,
+   "blocks": 106352,
+   "logical_bytes": 871117398,
+   "unchanged_blocks": 99601,
    "dedup_blocks": 2049,
-   "new_blocks": 4703,
-   "seconds": 2.13,
+   "new_blocks": 4702,
+   "seconds": 2.144,
    "store": {
-    "new_objects": 4730,
-    "new_raw_bytes": 38994919,
-    "new_stored_bytes": 8869373,
+    "new_objects": 4729,
+    "new_raw_bytes": 38986695,
+    "new_stored_bytes": 8869461,
     "kinds": {
      "raw": 20,
-     "zstd": 1117,
+     "zstd": 1115,
      "xor": 11,
-     "zdict": 135,
-     "tdict": 3447
+     "zdict": 132,
+     "tdict": 3451
     },
     "kind_bytes": {
-     "raw": 147520,
-     "zstd": 2171572,
-     "xor": 1761,
-     "zdict": 22746,
-     "tdict": 6363498
+     "raw": 147488,
+     "zstd": 2167943,
+     "xor": 1840,
+     "zdict": 22526,
+     "tdict": 6367366
     }
    }
   },
   {
-   "id": "26b1ff9d3648435ef33807cdf6076e75b64d782a3f895fa4fbd66df618e8b321",
+   "id": "07db83e14f4a372c5be2fc2e6746b4783ba2aac12ecb73d9f924df7da48b4bfb",
    "seq": 4,
    "files": 1290,
    "dirs": 26,
-   "blocks": 106557,
-   "logical_bytes": 872796908,
-   "unchanged_blocks": 84358,
+   "blocks": 106554,
+   "logical_bytes": 872772332,
+   "unchanged_blocks": 84400,
    "dedup_blocks": 2047,
-   "new_blocks": 20152,
-   "seconds": 5.416,
+   "new_blocks": 20107,
+   "seconds": 5.488,
    "store": {
-    "new_objects": 20553,
-    "new_raw_bytes": 168609962,
-    "new_stored_bytes": 3928517,
+    "new_objects": 20508,
+    "new_raw_bytes": 168241226,
+    "new_stored_bytes": 3915106,
     "kinds": {
      "raw": 17,
-     "zstd": 72,
-     "xor": 2615,
-     "zdict": 17123,
-     "tdict": 726
+     "zstd": 71,
+     "xor": 2663,
+     "zdict": 17049,
+     "tdict": 708
     },
     "kind_bytes": {
-     "raw": 130528,
-     "zstd": 217108,
-     "xor": 472892,
-     "zdict": 1965479,
-     "tdict": 282132
+     "raw": 130464,
+     "zstd": 219469,
+     "xor": 483669,
+     "zdict": 1945242,
+     "tdict": 277742
     }
    }
   },
   {
-   "id": "6ab6bb5f3150af3ce8e01147e2e58b210c4ded153e146cb9d25fe30b5bbf183f",
+   "id": "11f50454f3d9ae64a6e8e82a5ca46f790a8bf2288b27c587508dedeaed142b8b",
    "seq": 5,
    "files": 1290,
    "dirs": 26,
-   "blocks": 111327,
-   "logical_bytes": 911872748,
-   "unchanged_blocks": 99341,
+   "blocks": 111325,
+   "logical_bytes": 911856364,
+   "unchanged_blocks": 99334,
    "dedup_blocks": 2047,
-   "new_blocks": 9939,
-   "seconds": 3.086,
+   "new_blocks": 9944,
+   "seconds": 3.043,
    "store": {
-    "new_objects": 9991,
-    "new_raw_bytes": 82102755,
-    "new_stored_bytes": 10603184,
+    "new_objects": 9996,
+    "new_raw_bytes": 82143651,
+    "new_stored_bytes": 10616275,
     "kinds": {
      "raw": 37,
-     "zstd": 690,
-     "xor": 112,
-     "zdict": 1829,
-     "tdict": 7323
+     "zstd": 689,
+     "xor": 56,
+     "zdict": 1823,
+     "tdict": 7391
     },
     "kind_bytes": {
-     "raw": 291040,
-     "zstd": 1404300,
-     "xor": 35537,
-     "zdict": 1140295,
-     "tdict": 7335654
+     "raw": 291008,
+     "zstd": 1407502,
+     "xor": 16768,
+     "zdict": 1152055,
+     "tdict": 7352342
     }
    }
   },
   {
-   "id": "48349d5d3d8eba37a628e7ff0eb17d88b6322bf06bf34fd8d933a8dbf1d73848",
+   "id": "f3a983907b2db83fad7fe2453d6740c0b02afd78641e5bd5732a399af57dff7d",
    "seq": 6,
    "files": 1291,
    "dirs": 26,
-   "blocks": 111498,
-   "logical_bytes": 913273729,
-   "unchanged_blocks": 109243,
+   "blocks": 111496,
+   "logical_bytes": 913257345,
+   "unchanged_blocks": 109241,
    "dedup_blocks": 2047,
    "new_blocks": 208,
-   "seconds": 1.896,
+   "seconds": 1.935,
    "store": {
     "new_objects": 218,
     "new_raw_bytes": 2033542,
-    "new_stored_bytes": 313172,
+    "new_stored_bytes": 313159,
     "kinds": {
      "raw": 1,
      "zstd": 92,
@@ -1888,202 +1568,202 @@
     "kind_bytes": {
      "raw": 5472,
      "zstd": 153325,
-     "xor": 813,
-     "zdict": 3757,
-     "tdict": 143625
+     "xor": 812,
+     "zdict": 3747,
+     "tdict": 143623
     }
    }
   },
   {
-   "id": "8ae347db3f2780279e77ece5f4bb9a92fdd2057681ea15500748bcc31b49e743",
+   "id": "3013faaa0f5793a8ec6a405df3cbdd8a76526e369c97b89b4650ea3d4d56a4c1",
    "seq": 7,
    "files": 1291,
    "dirs": 26,
-   "blocks": 111686,
-   "logical_bytes": 914813825,
-   "unchanged_blocks": 94015,
+   "blocks": 111688,
+   "logical_bytes": 914830209,
+   "unchanged_blocks": 93833,
    "dedup_blocks": 2047,
-   "new_blocks": 15624,
-   "seconds": 4.836,
+   "new_blocks": 15808,
+   "seconds": 4.992,
    "store": {
-    "new_objects": 16010,
-    "new_raw_bytes": 131424262,
-    "new_stored_bytes": 3553258,
+    "new_objects": 16198,
+    "new_raw_bytes": 132964422,
+    "new_stored_bytes": 3585926,
     "kinds": {
      "raw": 0,
      "zstd": 70,
-     "xor": 3104,
-     "zdict": 12196,
-     "tdict": 640
+     "xor": 2985,
+     "zdict": 12497,
+     "tdict": 646
     },
     "kind_bytes": {
      "raw": 0,
-     "zstd": 212990,
-     "xor": 571074,
-     "zdict": 1827724,
-     "tdict": 271290
+     "zstd": 218471,
+     "xor": 554223,
+     "zdict": 1863970,
+     "tdict": 271186
     }
    }
   },
   {
-   "id": "9cf9dee58304654e91783cae99467fad48c6f18bafd59fd2defd4ca44ba6fc68",
+   "id": "d68184f9f37cba5b2f5c384f2c6e3e0d72a93d9a51af83ffa47b8aade0eaf632",
    "seq": 8,
    "files": 1291,
    "dirs": 26,
-   "blocks": 111687,
-   "logical_bytes": 914822017,
-   "unchanged_blocks": 104817,
+   "blocks": 111689,
+   "logical_bytes": 914838401,
+   "unchanged_blocks": 104819,
    "dedup_blocks": 2047,
    "new_blocks": 4823,
-   "seconds": 3.034,
+   "seconds": 3.01,
    "store": {
     "new_objects": 4849,
     "new_raw_bytes": 39988454,
-    "new_stored_bytes": 1886100,
+    "new_stored_bytes": 1885945,
     "kinds": {
      "raw": 20,
      "zstd": 3,
-     "xor": 5,
+     "xor": 7,
      "zdict": 4815,
-     "tdict": 6
+     "tdict": 4
     },
     "kind_bytes": {
      "raw": 150880,
-     "zstd": 2676,
-     "xor": 5307,
-     "zdict": 1523751,
-     "tdict": 564
+     "zstd": 2542,
+     "xor": 2576,
+     "zdict": 1526605,
+     "tdict": 420
     }
    }
   },
   {
-   "id": "b69f306574a4a6c6a988bc3fd45c2b6f5c126e8f62de500110c27ae861bc0eae",
+   "id": "38d9c0f83af639ad0fe17e1d3085315ce89184d1eac190e466834af9e6e8e598",
    "seq": 9,
    "files": 1297,
    "dirs": 26,
-   "blocks": 111705,
-   "logical_bytes": 914970353,
-   "unchanged_blocks": 109580,
+   "blocks": 111707,
+   "logical_bytes": 914986737,
+   "unchanged_blocks": 109582,
    "dedup_blocks": 2050,
    "new_blocks": 75,
-   "seconds": 1.899,
+   "seconds": 1.975,
    "store": {
     "new_objects": 86,
     "new_raw_bytes": 942536,
-    "new_stored_bytes": 31005,
+    "new_stored_bytes": 31033,
     "kinds": {
      "raw": 0,
      "zstd": 9,
-     "xor": 9,
-     "zdict": 59,
+     "xor": 8,
+     "zdict": 60,
      "tdict": 9
     },
     "kind_bytes": {
      "raw": 0,
-     "zstd": 7661,
-     "xor": 4322,
-     "zdict": 10294,
-     "tdict": 5404
+     "zstd": 7672,
+     "xor": 4271,
+     "zdict": 10375,
+     "tdict": 5391
     }
    }
   },
   {
-   "id": "e839410cc559a98d411874acf7f6ffad0b018b132bf38e4d990219d4a74cff12",
+   "id": "f2e2ac48928a24067b69202d2233c932fe011399c149f07d65bb43ec9210d6a8",
    "seq": 10,
    "files": 1297,
    "dirs": 26,
-   "blocks": 111881,
-   "logical_bytes": 916412147,
-   "unchanged_blocks": 94602,
-   "dedup_blocks": 1961,
-   "new_blocks": 15318,
-   "seconds": 4.793,
+   "blocks": 111882,
+   "logical_bytes": 916420339,
+   "unchanged_blocks": 94724,
+   "dedup_blocks": 2047,
+   "new_blocks": 15111,
+   "seconds": 4.938,
    "store": {
-    "new_objects": 15710,
-    "new_raw_bytes": 128937364,
-    "new_stored_bytes": 3796553,
+    "new_objects": 15506,
+    "new_raw_bytes": 127258484,
+    "new_stored_bytes": 3508059,
     "kinds": {
      "raw": 3,
-     "zstd": 161,
-     "xor": 3476,
-     "zdict": 11428,
-     "tdict": 642
+     "zstd": 83,
+     "xor": 3457,
+     "zdict": 11314,
+     "tdict": 649
     },
     "kind_bytes": {
-     "raw": 2400,
-     "zstd": 543290,
-     "xor": 646108,
-     "zdict": 1683483,
-     "tdict": 266700
+     "raw": 2432,
+     "zstd": 294714,
+     "xor": 644105,
+     "zdict": 1654546,
+     "tdict": 263762
     }
    }
   },
   {
-   "id": "73af840d8b79d7330dc52de7e608007573197ef68d516546c2a9c40066b1ecd6",
+   "id": "a85b338be64f0a54244e0ea7c4baf5467a4c80558a043117e533b0e8e3dec851",
    "seq": 11,
    "files": 1295,
    "dirs": 26,
-   "blocks": 110999,
-   "logical_bytes": 909186503,
-   "unchanged_blocks": 104966,
+   "blocks": 111000,
+   "logical_bytes": 909194695,
+   "unchanged_blocks": 105063,
    "dedup_blocks": 2047,
-   "new_blocks": 3986,
-   "seconds": 2.329,
+   "new_blocks": 3890,
+   "seconds": 2.132,
    "store": {
-    "new_objects": 4015,
-    "new_raw_bytes": 33111661,
-    "new_stored_bytes": 7093098,
+    "new_objects": 3917,
+    "new_raw_bytes": 32316973,
+    "new_stored_bytes": 7076726,
     "kinds": {
-     "raw": 17,
-     "zstd": 3077,
-     "xor": 8,
-     "zdict": 144,
-     "tdict": 769
+     "raw": 16,
+     "zstd": 3068,
+     "xor": 6,
+     "zdict": 54,
+     "tdict": 773
     },
     "kind_bytes": {
-     "raw": 122816,
-     "zstd": 5644737,
-     "xor": 3393,
-     "zdict": 19632,
-     "tdict": 1232898
+     "raw": 122752,
+     "zstd": 5631676,
+     "xor": 1206,
+     "zdict": 8664,
+     "tdict": 1246602
     }
    }
   },
   {
-   "id": "2c600deb07d7a68c2044b673fa48f98100457a69f22c6a56d15d80e9f30c0467",
+   "id": "3adb2c034b4833fe3f96d01626bbbbf83ebb39aabc2b2f782795c9c147d56c1d",
    "seq": 12,
    "files": 1295,
    "dirs": 26,
-   "blocks": 111161,
-   "logical_bytes": 910513607,
-   "unchanged_blocks": 94497,
+   "blocks": 111163,
+   "logical_bytes": 910529991,
+   "unchanged_blocks": 94415,
    "dedup_blocks": 2047,
-   "new_blocks": 14617,
-   "seconds": 4.903,
+   "new_blocks": 14701,
+   "seconds": 4.807,
    "store": {
-    "new_objects": 15007,
-    "new_raw_bytes": 123188461,
-    "new_stored_bytes": 3401845,
+    "new_objects": 15093,
+    "new_raw_bytes": 123893037,
+    "new_stored_bytes": 3396450,
     "kinds": {
      "raw": 1,
      "zstd": 69,
-     "xor": 3967,
-     "zdict": 10331,
-     "tdict": 639
+     "xor": 3898,
+     "zdict": 10516,
+     "tdict": 609
     },
     "kind_bytes": {
      "raw": 2112,
-     "zstd": 214342,
-     "xor": 739131,
-     "zdict": 1565852,
-     "tdict": 252354
+     "zstd": 212668,
+     "xor": 732009,
+     "zdict": 1574232,
+     "tdict": 243763
     }
    }
   }
  ],
  "pgit_diff_first_last": {
-  "from": "f83c39eccbedf8c94ce784e55663477ff32837facec85044bf28c9e262c81986",
-  "to": "2c600deb07d7a68c2044b673fa48f98100457a69f22c6a56d15d80e9f30c0467",
+  "from": "60c34df9fc7598571e2e70427ccf7f995f8af38991d5fff9b667d05cfda779f9",
+  "to": "3adb2c034b4833fe3f96d01626bbbbf83ebb39aabc2b2f782795c9c147d56c1d",
   "groups": {
    "backup_label": {
     "files_added": 0,
@@ -2224,10 +1904,10 @@
     "files_added": 0,
     "files_removed": 0,
     "files_changed": 1,
-    "blocks_changed": 39577,
-    "blocks_added": 4708,
+    "blocks_changed": 39689,
+    "blocks_added": 4710,
     "blocks_removed": 0,
-    "bytes_touched": 362782720
+    "bytes_touched": 363716608
    },
    "bench:public.pgbench_accounts [fsm]": {
     "files_added": 0,
@@ -2341,10 +2021,10 @@
     "files_added": 0,
     "files_removed": 0,
     "files_changed": 1,
-    "blocks_changed": 13326,
+    "blocks_changed": 13330,
     "blocks_added": 686,
     "blocks_removed": 0,
-    "bytes_touched": 114786304
+    "bytes_touched": 114819072
    },
    "bench:public.events_id_seq": {
     "files_added": 0,
@@ -2788,31 +2468,5 @@
     "bytes_touched": 16384
    }
   }
- },
- "pgit_delta_restore": {
-  "last_to_first": {
-   "seconds": 0.786,
-   "files": 1286,
-   "blocks": 101568,
-   "bytes": 831926404,
-   "written_blocks": 55093,
-   "skipped_blocks": 46475,
-   "removed": 15,
-   "commit": "f83c39eccbedf8c94ce784e55663477ff32837facec85044bf28c9e262c81986",
-   "checksums_match": true
-  },
-  "first_to_last": {
-   "seconds": 1.579,
-   "files": 1295,
-   "blocks": 111161,
-   "bytes": 910513607,
-   "written_blocks": 64686,
-   "skipped_blocks": 46475,
-   "removed": 14,
-   "commit": "2c600deb07d7a68c2044b673fa48f98100457a69f22c6a56d15d80e9f30c0467",
-   "checksums_match": true
-  }
- },
- "pgit_fsck_seconds": 2.55,
- "pgit_verify_all_seconds": 29.7
+ }
 }
