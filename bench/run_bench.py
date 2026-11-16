@@ -390,7 +390,6 @@ pg1-socket-path={cluster.sockdir}
         return dt
 
     def corrupt_and_check(self):
-        last = self.labels[max(self.labels)]
         # corrupt a copy of the repository, verify it
         copy_root = self.work / f"pgbr-corrupt-{self.repo_no}"
         rmrf(copy_root)

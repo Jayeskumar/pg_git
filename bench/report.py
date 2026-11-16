@@ -397,8 +397,8 @@ def main():
     if dr:
         a1, a2 = dr["last_to_first"], dr["first_to_last"]
         md.append("### In-place (`--delta`) restore\n")
-        md.append(f"`pgit restore --delta` rewrites only the blocks that differ in an existing "
-                  f"directory, similar to `git checkout` or `pgbackrest restore --delta`.\n")
+        md.append("`pgit restore --delta` rewrites only the blocks that differ in an existing "
+                  "directory, similar to `git checkout` or `pgbackrest restore --delta`.\n")
         md.append("| switch | time | blocks written | blocks unchanged | files removed | match |\n"
                   "|---|---:|---:|---:|---:|:-:|")
         md.append(f"| v{N} → v1 | {secs(a1['seconds'])} | {a1['written_blocks']:,} | "
