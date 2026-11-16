@@ -1017,9 +1017,290 @@
    "checksums_match": true,
    "pg_checksums": true,
    "restored_bytes": 889858909
+  },
+  {
+   "tool": "pgit",
+   "v": 5,
+   "restore_seconds": 1.656,
+   "pg_verifybackup": true,
+   "startup_seconds": 0.911,
+   "checksums_match": true,
+   "pg_checksums": true,
+   "restored_bytes": 928942941
+  },
+  {
+   "tool": "pgit",
+   "v": 6,
+   "restore_seconds": 1.468,
+   "pg_verifybackup": true,
+   "startup_seconds": 0.911,
+   "checksums_match": true,
+   "pg_checksums": true,
+   "restored_bytes": 930344119
+  },
+  {
+   "tool": "pgit",
+   "v": 7,
+   "restore_seconds": 1.684,
+   "pg_verifybackup": true,
+   "startup_seconds": 0.81,
+   "checksums_match": true,
+   "pg_checksums": true,
+   "restored_bytes": 931957943
+  },
+  {
+   "tool": "pgit",
+   "v": 8,
+   "restore_seconds": 1.831,
+   "pg_verifybackup": true,
+   "startup_seconds": 1.012,
+   "checksums_match": true,
+   "pg_checksums": true,
+   "restored_bytes": 931966135
+  },
+  {
+   "tool": "pgit",
+   "v": 9,
+   "restore_seconds": 1.979,
+   "pg_verifybackup": true,
+   "startup_seconds": 0.912,
+   "checksums_match": true,
+   "pg_checksums": true,
+   "restored_bytes": 932114865
+  },
+  {
+   "tool": "pgit",
+   "v": 10,
+   "restore_seconds": 1.893,
+   "pg_verifybackup": true,
+   "startup_seconds": 0.811,
+   "checksums_match": true,
+   "pg_checksums": true,
+   "restored_bytes": 933581235
+  },
+  {
+   "tool": "pgit",
+   "v": 11,
+   "restore_seconds": 1.839,
+   "pg_verifybackup": true,
+   "startup_seconds": 0.912,
+   "checksums_match": true,
+   "pg_checksums": true,
+   "restored_bytes": 926355591
+  },
+  {
+   "tool": "pgit",
+   "v": 12,
+   "restore_seconds": 1.93,
+   "pg_verifybackup": true,
+   "startup_seconds": 0.911,
+   "checksums_match": true,
+   "pg_amcheck": true,
+   "pg_amcheck_seconds": 1.8,
+   "pg_checksums": true,
+   "restored_bytes": 927945049
+  },
+  {
+   "tool": "pg_basebackup (full, zstd)",
+   "v": 1,
+   "restore_seconds": 1.253,
+   "pg_verifybackup": true,
+   "startup_seconds": 1.01,
+   "checksums_match": true,
+   "restored_bytes": 848746876
+  },
+  {
+   "tool": "pg_basebackup (full, zstd)",
+   "v": 6,
+   "restore_seconds": 1.435,
+   "pg_verifybackup": true,
+   "startup_seconds": 1.111,
+   "checksums_match": true,
+   "restored_bytes": 930159563
+  },
+  {
+   "tool": "pg_basebackup (full, zstd)",
+   "v": 12,
+   "restore_seconds": 1.394,
+   "pg_verifybackup": true,
+   "startup_seconds": 1.011,
+   "checksums_match": true,
+   "pg_amcheck": true,
+   "pg_amcheck_seconds": 2.36,
+   "restored_bytes": 927759912
+  },
+  {
+   "tool": "pgBackRest (file incr, zst)",
+   "v": 1,
+   "restore_seconds": 1.431,
+   "startup_seconds": 0.31,
+   "checksums_match": true,
+   "restored_bytes": 899078968
+  },
+  {
+   "tool": "pgBackRest (file incr, zst)",
+   "v": 6,
+   "restore_seconds": 1.419,
+   "startup_seconds": 0.313,
+   "checksums_match": true,
+   "restored_bytes": 980491654
+  },
+  {
+   "tool": "pgBackRest (file incr, zst)",
+   "v": 12,
+   "restore_seconds": 1.377,
+   "startup_seconds": 0.31,
+   "checksums_match": true,
+   "pg_amcheck": true,
+   "pg_amcheck_seconds": 2.29,
+   "restored_bytes": 978092003
+  },
+  {
+   "tool": "pgBackRest (block incr, zst)",
+   "v": 1,
+   "restore_seconds": 1.471,
+   "startup_seconds": 0.411,
+   "checksums_match": true,
+   "restored_bytes": 882301752
+  },
+  {
+   "tool": "pgBackRest (block incr, zst)",
+   "v": 6,
+   "restore_seconds": 1.615,
+   "startup_seconds": 0.31,
+   "checksums_match": true,
+   "restored_bytes": 963714439
+  },
+  {
+   "tool": "pgBackRest (block incr, zst)",
+   "v": 12,
+   "restore_seconds": 1.595,
+   "startup_seconds": 0.31,
+   "checksums_match": true,
+   "pg_amcheck": true,
+   "pg_amcheck_seconds": 1.8,
+   "restored_bytes": 961314786
+  },
+  {
+   "tool": "restic (on plain basebackup)",
+   "v": 1,
+   "restore_seconds": 1.72,
+   "startup_seconds": 0.811,
+   "checksums_match": true,
+   "restored_bytes": 848930532
+  },
+  {
+   "tool": "restic (on plain basebackup)",
+   "v": 6,
+   "restore_seconds": 1.61,
+   "startup_seconds": 0.811,
+   "checksums_match": true,
+   "restored_bytes": 930343984
+  },
+  {
+   "tool": "restic (on plain basebackup)",
+   "v": 12,
+   "restore_seconds": 1.671,
+   "startup_seconds": 0.812,
+   "checksums_match": true,
+   "pg_amcheck": true,
+   "pg_amcheck_seconds": 2.29,
+   "restored_bytes": 927944914
+  },
+  {
+   "tool": "git (on plain basebackup)",
+   "v": 1,
+   "restore_seconds": 1.757,
+   "startup_seconds": 0.71,
+   "checksums_match": true,
+   "restored_bytes": 848930532
+  },
+  {
+   "tool": "git (on plain basebackup)",
+   "v": 6,
+   "restore_seconds": 2.192,
+   "startup_seconds": 1.112,
+   "checksums_match": true,
+   "restored_bytes": 930343984
+  },
+  {
+   "tool": "git (on plain basebackup)",
+   "v": 12,
+   "restore_seconds": 1.866,
+   "startup_seconds": 1.013,
+   "checksums_match": true,
+   "pg_amcheck": true,
+   "pg_amcheck_seconds": 1.74,
+   "restored_bytes": 927944914
+  },
+  {
+   "tool": "pg_dump (logical, zstd)",
+   "v": 1,
+   "restore_seconds": 5.242,
+   "startup_seconds": 0.0,
+   "checksums_match": true,
+   "restored_bytes": 1469675953
+  },
+  {
+   "tool": "pg_dump (logical, zstd)",
+   "v": 6,
+   "restore_seconds": 5.208,
+   "startup_seconds": 0.0,
+   "checksums_match": true,
+   "restored_bytes": 1543412342
+  },
+  {
+   "tool": "pg_dump (logical, zstd)",
+   "v": 12,
+   "restore_seconds": 5.148,
+   "startup_seconds": 0.0,
+   "checksums_match": true,
+   "pg_amcheck": true,
+   "pg_amcheck_seconds": 1.64,
+   "restored_bytes": 1538378184
   }
  ],
- "corruption": {},
+ "corruption": {
+  "pgit": {
+   "detected": true,
+   "how": "pgit fsck",
+   "file": "pack-000001.pack",
+   "offset": 25193494,
+   "tool_output": "18 problems found",
+   "versions_affected": "12/12"
+  },
+  "pg_basebackup (full, zstd)": {
+   "detected": true,
+   "how": "pg_verifybackup after extraction",
+   "offset": 28944425
+  },
+  "pgBackRest (file incr, zst)": {
+   "detected": true,
+   "how": "pgbackrest verify (exit code 0, damage only in report)",
+   "exit_code": 0,
+   "file": "backup/bench/20261116-210450F_20261116-211322I/pg_data/base/16384/16397.zst",
+   "offset": 13755874,
+   "versions_affected": "1/12"
+  },
+  "pgBackRest (block incr, zst)": {
+   "detected": true,
+   "how": "pgbackrest verify (exit code 0, damage only in report)",
+   "exit_code": 0,
+   "file": "backup/bench/20261116-210454F_20261116-210940I/pg_data/base/16384/16405.pgbi",
+   "offset": 8830402,
+   "versions_affected": "1/12"
+  },
+  "restic (on plain basebackup)": {
+   "detected": true,
+   "how": "restic check --read-data",
+   "offset": 8437349
+  },
+  "git (on plain basebackup)": {
+   "detected": true,
+   "how": "git fsck --full",
+   "offset": 130572819
+  }
+ },
  "log": [
   "[21:03:52] initdb (scale 50, 12 versions)",
   "[21:04:05] v1: pgbench -i -s 50; cluster 777 MiB",
@@ -1183,7 +1464,40 @@
   "[21:14:07] restore pgit                               v1   1.227s + start 0.913s  match=True ",
   "[21:14:12] restore pgit                               v2   1.345s + start 0.811s  match=True ",
   "[21:14:18] restore pgit                               v3   1.464s + start 0.911s  match=True ",
-  "[21:14:23] restore pgit                               v4   1.559s + start 0.711s  match=True "
+  "[21:14:23] restore pgit                               v4   1.559s + start 0.711s  match=True ",
+  "[21:14:29] restore pgit                               v5   1.656s + start 0.911s  match=True ",
+  "[21:14:35] restore pgit                               v6   1.468s + start 0.911s  match=True ",
+  "[21:14:41] restore pgit                               v7   1.684s + start 0.81s  match=True ",
+  "[21:14:47] restore pgit                               v8   1.831s + start 1.012s  match=True ",
+  "[21:14:53] restore pgit                               v9   1.979s + start 0.912s  match=True ",
+  "[21:15:00] restore pgit                               v10  1.893s + start 0.811s  match=True ",
+  "[21:15:06] restore pgit                               v11  1.839s + start 0.912s  match=True ",
+  "[21:15:14] restore pgit                               v12  1.93s + start 0.911s  match=True ",
+  "[21:15:19] restore pg_basebackup (full, zstd)         v1   1.253s + start 1.01s  match=True ",
+  "[21:15:25] restore pg_basebackup (full, zstd)         v6   1.435s + start 1.111s  match=True ",
+  "[21:15:33] restore pg_basebackup (full, zstd)         v12  1.394s + start 1.011s  match=True ",
+  "[21:15:37] restore pgBackRest (file incr, zst)        v1   1.431s + start 0.31s  match=True ",
+  "[21:15:42] restore pgBackRest (file incr, zst)        v6   1.419s + start 0.313s  match=True ",
+  "[21:15:49] restore pgBackRest (file incr, zst)        v12  1.377s + start 0.31s  match=True ",
+  "[21:15:53] restore pgBackRest (block incr, zst)       v1   1.471s + start 0.411s  match=True ",
+  "[21:15:58] restore pgBackRest (block incr, zst)       v6   1.615s + start 0.31s  match=True ",
+  "[21:16:05] restore pgBackRest (block incr, zst)       v12  1.595s + start 0.31s  match=True ",
+  "[21:16:10] restore restic (on plain basebackup)       v1   1.72s + start 0.811s  match=True ",
+  "[21:16:16] restore restic (on plain basebackup)       v6   1.61s + start 0.811s  match=True ",
+  "[21:16:23] restore restic (on plain basebackup)       v12  1.671s + start 0.812s  match=True ",
+  "[21:16:29] restore git (on plain basebackup)          v1   1.757s + start 0.71s  match=True ",
+  "[21:16:35] restore git (on plain basebackup)          v6   2.192s + start 1.112s  match=True ",
+  "[21:16:43] restore git (on plain basebackup)          v12  1.866s + start 1.013s  match=True ",
+  "[21:16:52] restore pg_dump (logical, zstd)            v1   5.242s + start 0.0s  match=True ",
+  "[21:17:02] restore pg_dump (logical, zstd)            v6   5.208s + start 0.0s  match=True ",
+  "[21:17:14] restore pg_dump (logical, zstd)            v12  5.148s + start 0.0s  match=True ",
+  "[21:17:25] pgit delta restore v12->v1 0.96s ok=True; v1->v12 1.51s ok=True",
+  "[21:18:12] corruption pgit                               detected=True pgit fsck",
+  "[21:18:13] corruption pg_basebackup (full, zstd)         detected=True pg_verifybackup after extraction",
+  "[21:18:15] corruption pgBackRest (file incr, zst)        detected=True pgbackrest verify (exit code 0, damage only in report)",
+  "[21:18:16] corruption pgBackRest (block incr, zst)       detected=True pgbackrest verify (exit code 0, damage only in report)",
+  "[21:18:20] corruption restic (on plain basebackup)       detected=True restic check --read-data",
+  "[21:18:36] corruption git (on plain basebackup)          detected=True git fsck --full"
  ],
  "git_gc": {
   "seconds": 22.67,
@@ -2468,5 +2782,31 @@
     "bytes_touched": 16384
    }
   }
- }
+ },
+ "pgit_delta_restore": {
+  "last_to_first": {
+   "seconds": 0.792,
+   "files": 1286,
+   "blocks": 101568,
+   "bytes": 831926404,
+   "written_blocks": 55209,
+   "skipped_blocks": 46359,
+   "removed": 15,
+   "commit": "60c34df9fc7598571e2e70427ccf7f995f8af38991d5fff9b667d05cfda779f9",
+   "checksums_match": true
+  },
+  "first_to_last": {
+   "seconds": 1.335,
+   "files": 1295,
+   "blocks": 111163,
+   "bytes": 910529991,
+   "written_blocks": 64804,
+   "skipped_blocks": 46359,
+   "removed": 14,
+   "commit": "3adb2c034b4833fe3f96d01626bbbbf83ebb39aabc2b2f782795c9c147d56c1d",
+   "checksums_match": true
+  }
+ },
+ "pgit_fsck_seconds": 2.38,
+ "pgit_verify_all_seconds": 27.75
 }

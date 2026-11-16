@@ -366,6 +366,13 @@ def main():
                   f"{yes(rec.get('checksums_match'))} | {yes(rec.get('pg_verifybackup'))} | "
                   f"{yes(rec.get('pg_amcheck'))} |" + (f" error: {rec['error'][:80]}" if 'error' in rec else ""))
     md.append("")
+    md.append("Startup differences come from the recovery mode, not from the restored data. A "
+              "directory with `backup_label` and its WAL in `pg_wal` (pgit, pg_basebackup, restic, "
+              "git) gets crash recovery, which ends with a *synchronous* end-of-recovery checkpoint. "
+              "pgBackRest writes `recovery.signal` with `recovery_target=immediate` and promotes, "
+              "which lets the server accept connections before that checkpoint. pg_dump restores "
+              "into a running server, so its time is all `pg_restore -j4`, which includes "
+              "rebuilding the indexes.\n")
     last = [rec for rec in res if rec["v"] == N and rec["tool"] in SHORT and "restore_seconds" in rec]
     order = [t for t in tools]
     last.sort(key=lambda rec: order.index(rec["tool"]))

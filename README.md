@@ -28,7 +28,50 @@ Full tables and charts, generated from the raw benchmark output, are in
 **[docs/RESULTS.md](docs/RESULTS.md)**. The design is in
 **[docs/DESIGN.md](docs/DESIGN.md)**.
 
-<!-- RESULTS-SUMMARY -->
+An 850 MB cluster changed 11 times (pgbench OLTP runs, bulk inserts, a 250k-row
+update, index build, delete + vacuum, `VACUUM FULL`); every tool used zstd
+level 3:
+
+| | storage for all 12 versions | added per version (mean) | restore + start latest version | restored clusters correct |
+|---|---:|---:|---:|:-:|
+| **pgit** | **105 MiB** | **4.6 MiB** | 1.9 s + 0.9 s | 12/12 |
+| pgBackRest 2.50, block incremental | 230 MiB | 17.5 MiB | 1.6 s + 0.3 s | 3/3 |
+| pgBackRest 2.50, file incremental | 317 MiB | 25.3 MiB | 1.4 s + 0.3 s | 3/3 |
+| restic 0.16 (on a plain base backup) | 283 MiB | 22.4 MiB | 1.7 s + 0.8 s | 3/3 |
+| git 2.43 (on a plain base backup) | 388 MiB (249 after `git gc`) | 31.3 MiB | 1.9 s + 1.0 s | 3/3 |
+| pg_basebackup, full every time | 611 MiB | 52.2 MiB | 1.4 s + 1.0 s | 3/3 |
+| pg_dump -Fc (logical) | 144 MiB | 12.7 MiB | 5.1 s (pg_restore -j4) | 3/3 |
+
+*Correct* means PostgreSQL started on the restored directory and an
+order-independent hash of every row of every table equalled the value recorded
+at backup time. `pg_amcheck --heapallindexed` passed on every tool's latest
+restore, and `pg_verifybackup` and `pg_checksums` passed on every pgit restore.
+
+* **Storage.** pgit is 2.2× smaller than pgBackRest's block incremental and 5.8×
+  smaller than keeping full base backups. On a pgbench round it adds ~4.5 MiB
+  where pgBackRest adds 30–46 MiB, because it stores 8 KiB pages as XOR /
+  dictionary deltas. On append-only changes (bulk insert, a table rewrite)
+  all tools pay about the same, because the data is new.
+* **Ablation.** Dedup alone (whole changed pages) needs 179 MiB, XOR-only 116,
+  zdict-only 105, and auto (the default) 104.5. Capping delta chains at 2
+  costs +9%.
+* **Where pgit loses.** The *first* backup is 54 MiB against ~37 MiB for the
+  others: per-page addressing costs 32-byte ids in block lists plus an index
+  row per page, and pages are compressed independently (a trained zstd
+  dictionary recovers most, not all, of the streaming ratio). pgit is ahead
+  from the second version on.
+* **Restore.** Restores run at ~450 MB/s, and later versions take longer as delta
+  chains grow (1.2 s for v1 → 1.9 s for v12, bounded by `max_depth`). The
+  slower *startup* of pgit, pg_basebackup, restic and git comes from crash
+  recovery from `backup_label`, which ends with a synchronous checkpoint.
+  pgBackRest restores into archive recovery and promotes, which defers that
+  checkpoint. `restore --delta` switches an existing v12 directory back to v1
+  in 0.8 s.
+* **Integrity.** Every tool detected a flipped byte in its repository
+  (`pgbackrest verify` reports it but still exits 0). pgit names the damaged
+  objects. Because pages are shared across versions, one damaged base page
+  affected all 12 versions in this test, so keep the repository on redundant
+  storage.
 
 ## How it works (short version)
 
@@ -47,7 +90,7 @@ Full tables and charts, generated from the raw benchmark output, are in
 * **Merkle DAG.** commit → tree → blocklists → pages, all addressed by hash.
   Every read is verified, `fsck` checks everything, and the index can be
   rebuilt from the append-only pack files alone (`reindex`).
-* **Restore** uses forked worker processes (about 650 MB/s here), writes a
+* **Restore** uses forked worker processes (about 450 MB/s here), writes a
   normal base-backup directory that PostgreSQL recovers on its own, and
   `--delta` rewrites only differing pages of an existing directory.
 * **Retention.** `rm` + `gc` repack. Pages whose delta base disappears are
