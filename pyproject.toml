@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pgit"
+version = "0.1.0"
+description = "Git-style versioned PostgreSQL backups: one full base backup plus page-level deltas"
+requires-python = ">=3.10"
+dependencies = ["zstandard>=0.21"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+pgit = "pgit.cli:main"
+
+[tool.setuptools]
+packages = ["pgit"]
