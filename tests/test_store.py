@@ -88,21 +88,25 @@ def take(store, src):
 
 def test_roundtrip_many_versions(env):
     store, src, rng, tmp = env
+    plain = Store.init(tmp / "repo-dedup-only", delta="none")
     versions = []
     for v in range(6):
         if v:
             mutate(str(src), rng)
         cid, commit = take(store, src)
-        versions.append((cid, tree_digest(str(src)), commit))
-    # deltas must be much smaller than the first full snapshot
-    first = versions[0][2]["stats"]["store"]["new_stored_bytes"]
-    for _cid, _d, c in versions[1:]:
-        assert c["stats"]["store"]["new_stored_bytes"] < first / 3
-        assert c["stats"]["store"]["kinds"]["xor"] + c["stats"]["store"]["kinds"]["zdict"] > 0
+        _, pc = take(plain, src)
+        versions.append((cid, tree_digest(str(src)), commit, pc))
+    # page deltas must beat storing changed pages in full (a version whose
+    # chains hit max_depth stores full pages again, so compare totals)
+    delta_total = sum(c["stats"]["store"]["new_stored_bytes"] for _i, _d, c, _p in versions[1:])
+    plain_total = sum(p["stats"]["store"]["new_stored_bytes"] for _i, _d, _c, p in versions[1:])
+    assert versions[1][2]["stats"]["store"]["kinds"]["xor"] > 0
+    assert delta_total < 0.6 * plain_total
+    plain.close()
     # delta chains are bounded
     maxd = store.db.execute("SELECT max(depth) FROM objects").fetchone()[0]
     assert maxd <= 3
-    for i, (cid, digest, _c) in enumerate(versions):
+    for i, (cid, digest, _c, _pc) in enumerate(versions):
         out = tmp / f"restore{i}"
         rmod.restore(store, cid, str(out), jobs=3)
         assert tree_digest(str(out)) == digest
@@ -126,6 +130,28 @@ def test_delta_restore_switches_versions(env):
     assert st["skipped_blocks"] > st["written_blocks"]
     rmod.restore(store, c2, str(out), delta=True)
     assert tree_digest(str(out)) == d2
+
+
+def test_trained_dictionary(tmp_path):
+    rng = random.Random(7)
+    src = tmp_path / "src"
+    build_datadir(str(src), rng, nrel=6, pages=100)
+    with Store.init(tmp_path / "d", dict_samples=300) as sd, \
+            Store.init(tmp_path / "n", dict_size=0) as sn:
+        c1, a = snapshot(sd, entries_from_dir(str(src)))
+        _, b = snapshot(sn, entries_from_dir(str(src)))
+        assert a["stats"]["store"]["kinds"]["tdict"] > 0
+        assert a["stats"]["store"]["new_stored_bytes"] < b["stats"]["store"]["new_stored_bytes"]
+        rmod.restore(sd, c1, str(tmp_path / "out"), jobs=2)
+        assert tree_digest(str(tmp_path / "out")) == tree_digest(str(src))
+        # the dictionary survives gc and reindex
+        mutate(str(src), rng)
+        snapshot(sd, entries_from_dir(str(src)), c1)
+        gcmod.remove_commit(sd, sd.resolve("HEAD"))
+        gcmod.gc(sd)
+        assert rmod.fsck(sd)["errors"] == []
+        gcmod.reindex(sd)
+        assert rmod.verify_commit(sd, c1)["errors"] == []
 
 
 def test_dedup_identical_snapshot_costs_nothing(env):

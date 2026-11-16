@@ -5,11 +5,13 @@ import os
 import time
 
 from .snapshot import file_block_ids
-from .store import OT_COMMIT, ObjMeta, Store
+from .store import K_TDICT, OT_COMMIT, OT_DICT, ObjMeta, Store
 
 
 def reachable(store: Store) -> set[bytes]:
-    live: set[bytes] = set()
+    # trained dictionaries are tiny and shared by everything: always keep them
+    live: set[bytes] = {r[0] for r in store.db.execute("SELECT id FROM objects WHERE otype=?",
+                                                       (OT_DICT,))}
     for _seq, cid, _p, _t, _l in store.commits():
         live.add(cid)
         c = store.get_json(cid)
@@ -56,17 +58,25 @@ def gc(store: Store, dry_run: bool = False) -> dict:
     rebased = 0
     # bases always have a smaller depth than their dependants
     order = sorted((k for k in live if k in old),
-                   key=lambda k: (old[k].depth, old[k].pack, old[k].off))
+                   key=lambda k: (old[k].depth, old[k].otype != OT_DICT, old[k].pack, old[k].off))
+    bases = {k: store.base_of(old[k]) for k in order}
+
+    def base_in_old(k):
+        if k in bases:
+            return bases[k]
+        return store.base_of(old[k]) if k in old else None
+
     for id_ in order:
         m = old.get(id_)
+        mbase = bases[id_]
         if m is None:
             continue  # reported by fsck
-        if m.base is not None and m.base in live and m.base in new_meta:
+        if mbase is not None and mbase in live and mbase in new_meta:
             payload = store.read_payload(m)
-            pack, off = store._append(m.otype, m.kind, m.rawlen, payload, m.base)
-            depth = new_meta[m.base].depth + 1
-            new_meta[id_] = ObjMeta(m.otype, m.kind, pack, off, len(payload), m.rawlen, m.base, depth)
-        elif m.base is None:
+            pack, off = store._append(m.otype, m.kind, m.rawlen, payload, mbase)
+            depth = 0 if m.kind == K_TDICT else new_meta[mbase].depth + 1
+            new_meta[id_] = ObjMeta(m.otype, m.kind, pack, off, len(payload), m.rawlen, mbase, depth)
+        elif mbase is None:
             payload = store.read_payload(m)
             pack, off = store._append(m.otype, m.kind, m.rawlen, payload, None)
             new_meta[id_] = ObjMeta(m.otype, m.kind, pack, off, len(payload), m.rawlen, None, 0)
@@ -74,9 +84,9 @@ def gc(store: Store, dry_run: bool = False) -> dict:
             # base is gone: re-delta against the nearest surviving ancestor in the
             # old chain (e.g. the page two snapshots back), else store it full
             raw = store.get(id_)
-            anc = old[m.base].base if m.base in old else None
+            anc = base_in_old(mbase)
             while anc is not None and anc not in new_meta:
-                anc = old[anc].base if anc in old else None
+                anc = base_in_old(anc)
             anc_raw = None
             if anc is not None and new_meta[anc].depth < store.config["max_depth"]:
                 anc_raw = store.get(anc)
@@ -99,7 +109,7 @@ def gc(store: Store, dry_run: bool = False) -> dict:
     db.executemany(
         "INSERT INTO objects (id, otype, kind, pack, off, len, rawlen, base, depth)"
         " VALUES (?,?,?,?,?,?,?,?,?)",
-        [(k, m.otype, m.kind, m.pack, m.off, m.len, m.rawlen, m.base, m.depth)
+        [(k, m.otype, m.kind, m.pack, m.off, m.len, m.rawlen, None, m.depth)
          for k, m in new_meta.items()])
     db.execute("COMMIT")
     for fd in store._fds.values():
@@ -136,7 +146,7 @@ def reindex(store: Store) -> dict:
             depth = 0
             if base is not None:
                 bm = store._mem_index.get(base)
-                depth = bm.depth + 1 if bm else 0
+                depth = bm.depth + 1 if bm and kind != K_TDICT else 0
             m = ObjMeta(otype, kind, n, off, paylen, rawlen, base, depth)
             # decode with a placeholder id, then compute the real id from content
             tmp = b"\0" * 31 + b"\1"
@@ -160,7 +170,7 @@ def reindex(store: Store) -> dict:
     db.executemany(
         "INSERT OR IGNORE INTO objects (id, otype, kind, pack, off, len, rawlen, base, depth)"
         " VALUES (?,?,?,?,?,?,?,?,?)",
-        [(k, m.otype, m.kind, m.pack, m.off, m.len, m.rawlen, m.base, m.depth)
+        [(k, m.otype, m.kind, m.pack, m.off, m.len, m.rawlen, None, m.depth)
          for k, m in store._mem_index.items()])
     known = {row[0] for row in db.execute("SELECT id FROM commits")}
     added = 0

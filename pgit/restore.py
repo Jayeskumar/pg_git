@@ -2,15 +2,57 @@
 from __future__ import annotations
 
 import hashlib
+import multiprocessing as mp
 import os
 import shutil
 import time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
 
 from .snapshot import file_block_ids, load_commit, load_tree, relation_key
 from .store import KIND_NAMES, OTYPE_NAMES, Store
 
 SEGMENT_BLOCKS = 1024   # unit of parallel work: 8 MiB of a file
+
+# Worker processes are forked after the object index has been loaded into
+# memory, so they share it copy-on-write and only ever pread() the packs.
+# (Threads are slower here: decoding many small pages is GIL-bound.)
+_STORE: Store | None = None
+
+
+def _pmap(store: Store, fn, items, jobs: int, chunksize: int = 4):
+    """Map ``fn`` over ``items`` in ``jobs`` forked workers (in-process if jobs <= 1)."""
+    global _STORE
+    _STORE = store
+    if jobs <= 1 or len(items) <= 1:
+        yield from map(fn, items)
+        return
+    store.finish_pack()
+    ctx = mp.get_context("fork")
+    with ProcessPoolExecutor(max_workers=jobs, mp_context=ctx) as ex:
+        yield from ex.map(fn, items, chunksize=chunksize)
+
+
+def _restore_segment(task):
+    path, start, ids, exists, bs, verify, fsync = task
+    store = _STORE
+    fd = os.open(path, os.O_RDWR)
+    written = skipped = 0
+    try:
+        if exists:
+            cur = os.pread(fd, len(ids) * bs, start * bs)
+        for j, bid in enumerate(ids):
+            if exists:
+                old = cur[j * bs:(j + 1) * bs]
+                if old and hashlib.sha256(old).digest() == bid:
+                    skipped += 1
+                    continue
+            os.pwrite(fd, store.get(bid, verify=verify), (start + j) * bs)
+            written += 1
+        if fsync:
+            os.fsync(fd)
+    finally:
+        os.close(fd)
+    return written, skipped
 
 
 def restore(store: Store, cid: bytes, target: str, jobs: int = 4, delta: bool = False,
@@ -82,37 +124,14 @@ def restore(store: Store, cid: bytes, target: str, jobs: int = 4, delta: bool = 
             for k in range(0, len(ids), SEGMENT_BLOCKS):
                 tasks.append((path, k, ids[k:k + SEGMENT_BLOCKS], exists))
 
-    def work(task):
-        path, start, ids, exists = task
-        fd = os.open(path, os.O_RDWR)
-        written = skipped = 0
-        try:
-            if exists:
-                cur = os.pread(fd, len(ids) * bs, start * bs)
-            for j, bid in enumerate(ids):
-                off = (start + j) * bs
-                if exists:
-                    old = cur[j * bs:(j + 1) * bs]
-                    if old and hashlib.sha256(old).digest() == bid:
-                        skipped += 1
-                        continue
-                data = store.get(bid, verify=verify)
-                os.pwrite(fd, data, off)
-                written += 1
-            if fsync:
-                os.fsync(fd)
-        finally:
-            os.close(fd)
-        return written, skipped
-
     done = 0
-    with ThreadPoolExecutor(max_workers=max(1, jobs)) as ex:
-        for w, s in ex.map(work, tasks):
-            stats["written_blocks"] += w
-            stats["skipped_blocks"] += s
-            done += 1
-            if progress:
-                progress(done, len(tasks))
+    tasks = [t + (bs, verify, fsync) for t in tasks]
+    for w, sk in _pmap(store, _restore_segment, tasks, jobs):
+        stats["written_blocks"] += w
+        stats["skipped_blocks"] += sk
+        done += 1
+        if progress:
+            progress(done, len(tasks))
 
     # directory permissions last (PostgreSQL insists on 0700/0750)
     for path, mode in reversed(dirs):
@@ -171,26 +190,39 @@ def verify_commit(store: Store, cid: bytes, jobs: int = 4) -> dict:
     files = [e for e in tree["files"] if e["t"] == "f"]
     errors = []
 
-    def check(e):
-        try:
-            h = hashlib.sha256()
-            n = 0
-            for bid in file_block_ids(store, e):
-                data = store.get(bid)
-                h.update(data)
-                n += len(data)
-            if n != e["s"] or h.hexdigest() != e["h"]:
-                return f"{e['p']}: content mismatch"
-        except Exception as ex:  # noqa: BLE001
-            return f"{e['p']}: {ex}"
-        return None
-
-    with ThreadPoolExecutor(max_workers=jobs) as ex:
-        for r in ex.map(check, files):
-            if r:
-                errors.append(r)
+    for r in _pmap(store, _verify_file, files, jobs):
+        if r:
+            errors.append(r)
     return {"commit": cid.hex(), "files": len(files), "errors": errors,
             "seconds": round(time.time() - t0, 3)}
+
+
+def _verify_file(e):
+    store = _STORE
+    try:
+        h = hashlib.sha256()
+        n = 0
+        for bid in file_block_ids(store, e):
+            data = store.get(bid)
+            h.update(data)
+            n += len(data)
+        if n != e["s"] or h.hexdigest() != e["h"]:
+            return f"{e['p']}: content mismatch"
+    except Exception as ex:  # noqa: BLE001
+        return f"{e['p']}: {ex}"
+    return None
+
+
+def _check_objects(ids):
+    store = _STORE
+    errs = []
+    for id_ in ids:
+        try:
+            store.get(id_, verify=True)
+        except Exception as ex:  # noqa: BLE001
+            m = store.meta(id_)
+            errs.append(f"object {id_.hex()} ({OTYPE_NAMES.get(m.otype) if m else '?'}): {ex}")
+    return errs
 
 
 def fsck(store: Store, jobs: int = 4) -> dict:
@@ -201,20 +233,12 @@ def fsck(store: Store, jobs: int = 4) -> dict:
     errors = []
     counts = {}
 
-    def check(item):
-        id_, m = item
-        try:
-            store.get(id_, verify=True)
-        except Exception as ex:  # noqa: BLE001
-            return f"object {id_.hex()} ({OTYPE_NAMES.get(m.otype)}): {ex}"
-        return None
-
     for m in idx.values():
         counts[OTYPE_NAMES[m.otype]] = counts.get(OTYPE_NAMES[m.otype], 0) + 1
-    with ThreadPoolExecutor(max_workers=jobs) as ex:
-        for r in ex.map(check, idx.items(), chunksize=256):
-            if r:
-                errors.append(r)
+    ids = list(idx)
+    batches = [ids[k:k + 2048] for k in range(0, len(ids), 2048)]
+    for errs in _pmap(store, _check_objects, batches, jobs, chunksize=1):
+        errors.extend(errs)
     # reachability: every commit's tree, blocklists and blocks must exist
     missing = 0
     for _seq, cid, _p, _t, _l in store.commits():

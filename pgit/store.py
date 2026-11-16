@@ -17,6 +17,10 @@ its identity, exactly like git blobs vs. packfile deltas:
 * ``XOR``    payload is zstd(raw XOR base), base has the same length
 * ``ZDICT``  payload is zstd(raw) compressed with ``base`` as a raw-content
              dictionary (handles shifted tuples / line pointers in B-tree pages)
+* ``TDICT``  payload is zstd(raw) compressed with a zstd dictionary trained on
+             the repository's first pages; ``base`` is the id of that
+             dictionary object.  This recovers most of the ratio that is lost
+             by compressing 8 KiB pages independently.
 
 Deltas are taken against the raw content of the base, never against its
 encoding, so a base can be re-encoded (e.g. by ``gc``) without invalidating
@@ -48,15 +52,19 @@ OT_BLOB = 0      # a data page / file chunk
 OT_BLIST = 1     # list of block ids for a file (chunked)
 OT_TREE = 2      # tree (manifest) of a snapshot
 OT_COMMIT = 3    # commit metadata
+OT_DICT = 4      # trained zstd dictionary
 
 # encodings
 K_RAW = 0
 K_ZSTD = 1
 K_XOR = 2
 K_ZDICT = 3
+K_TDICT = 4
+BASED_KINDS = (K_XOR, K_ZDICT, K_TDICT)   # records that carry a 32-byte base id
 
-KIND_NAMES = {K_RAW: "raw", K_ZSTD: "zstd", K_XOR: "xor", K_ZDICT: "zdict"}
-OTYPE_NAMES = {OT_BLOB: "blob", OT_BLIST: "blocklist", OT_TREE: "tree", OT_COMMIT: "commit"}
+KIND_NAMES = {K_RAW: "raw", K_ZSTD: "zstd", K_XOR: "xor", K_ZDICT: "zdict", K_TDICT: "tdict"}
+OTYPE_NAMES = {OT_BLOB: "blob", OT_BLIST: "blocklist", OT_TREE: "tree", OT_COMMIT: "commit",
+               OT_DICT: "dict"}
 
 REC_HDR = struct.Struct("<cBII")  # magic, otype<<4|kind, rawlen, paylen
 REC_MAGIC = b"P"
@@ -72,6 +80,10 @@ DEFAULT_CONFIG = {
     "max_depth": 8,
     # keep a delta only if it is smaller than this fraction of the full encoding
     "delta_min_gain": 0.9,
+    # trained dictionary for full pages: size in bytes (0 disables) and the number
+    # of new pages buffered from the first backup to train it on
+    "dict_size": 112640,
+    "dict_samples": 4096,
 }
 
 SCHEMA = """
@@ -83,7 +95,7 @@ CREATE TABLE IF NOT EXISTS objects (
     off    INTEGER NOT NULL,      -- offset of payload in pack
     len    INTEGER NOT NULL,      -- payload length
     rawlen INTEGER NOT NULL,
-    base   BLOB,
+    base   BLOB,                  -- unused (base ids live in the pack record header)
     depth  INTEGER NOT NULL
 ) WITHOUT ROWID;
 CREATE TABLE IF NOT EXISTS commits (
@@ -154,6 +166,12 @@ class Store:
         self._wfile = None
         self._woff = 0
         self._pending: dict[bytes, ObjMeta] = {}
+        # trained dictionary
+        self._train_buf: dict[bytes, tuple[bytes, bytes | None]] = {}
+        row = self.db.execute("SELECT id FROM objects WHERE otype=? ORDER BY pack DESC, off DESC "
+                              "LIMIT 1", (OT_DICT,)).fetchone()
+        self._dict_id: bytes | None = row[0] if row else None
+        self._dict_cctx = None
         self.stats_reset()
 
     # ------------------------------------------------------------------ setup
@@ -192,6 +210,26 @@ class Store:
             self._local.cctx = c
         return c
 
+    def _dict_compressor(self):
+        if self._dict_id is None:
+            return None
+        if self._dict_cctx is None:
+            d = zstd.ZstdCompressionDict(self.get(self._dict_id))
+            self._dict_cctx = zstd.ZstdCompressor(level=self.config["zstd_level"], dict_data=d,
+                                                  write_checksum=False, write_content_size=False,
+                                                  write_dict_id=False)
+        return self._dict_cctx
+
+    def _dict_dctx(self, dict_id: bytes) -> zstd.ZstdDecompressor:
+        cache = getattr(self._local, "ddicts", None)
+        if cache is None:
+            cache = self._local.ddicts = {}
+        d = cache.get(dict_id)
+        if d is None:
+            d = zstd.ZstdDecompressor(dict_data=zstd.ZstdCompressionDict(self.get(dict_id)))
+            cache[dict_id] = d
+        return d
+
     def _dctx(self) -> zstd.ZstdDecompressor:
         d = getattr(self._local, "dctx", None)
         if d is None:
@@ -226,7 +264,7 @@ class Store:
         return ObjMeta(*row) if row else None
 
     def has(self, id_: bytes) -> bool:
-        if id_ in self._pending:
+        if id_ in self._pending or id_ in self._train_buf:
             return True
         if self._mem_index is not None:
             return id_ in self._mem_index
@@ -252,6 +290,7 @@ class Store:
 
     def finish_pack(self, sync: bool = True):
         """Flush the current pack to disk and commit pending index entries."""
+        self._drain_train_buf()
         if self._wfile is not None:
             self._wfile.flush()
             if sync:
@@ -271,7 +310,7 @@ class Store:
         hdr = REC_HDR.pack(REC_MAGIC, (otype << 4) | kind, rawlen, len(payload))
         self._wfile.write(hdr)
         off = self._woff + REC_HDR.size
-        if kind in (K_XOR, K_ZDICT):
+        if kind in BASED_KINDS:
             self._wfile.write(base)
             off += 32
         self._wfile.write(payload)
@@ -292,7 +331,7 @@ class Store:
 
     # ---------------------------------------------------------------- write
     def _encode(self, data: bytes, base: bytes | None, base_raw: bytes | None,
-                mode: str) -> tuple[int, bytes, bytes | None]:
+                mode: str, otype: int = OT_BLOB) -> tuple[int, bytes, bytes | None]:
         """Pick the smallest encoding. Returns (kind, payload, base_or_None)."""
         cctx = self._cctx()
         full = cctx.compress(data)
@@ -300,6 +339,11 @@ class Store:
             best = (K_RAW, data, None)
         else:
             best = (K_ZSTD, full, None)
+        dc = self._dict_compressor() if otype == OT_BLOB else None
+        if dc is not None:
+            fd = dc.compress(data)
+            if len(fd) < len(best[1]):
+                best = (K_TDICT, fd, self._dict_id)
         if base_raw is None or mode == "none":
             return best
         limit = len(best[1]) * self.config["delta_min_gain"]
@@ -330,6 +374,41 @@ class Store:
             id_ = oid(data)
         if self.has(id_):
             return id_
+        if (otype == OT_BLOB and self._dict_id is None and self.config["dict_size"]
+                and len(self._train_buf) < self.config["dict_samples"]):
+            # no dictionary yet: hold the first pages back to train one on them
+            self._train_buf[id_] = (data, base)
+            if len(self._train_buf) >= self.config["dict_samples"]:
+                self._drain_train_buf()
+            return id_
+        return self._put_now(data, otype, base, id_)
+
+    def flush_buffers(self):
+        self._drain_train_buf()
+
+    def _drain_train_buf(self):
+        """Train the dictionary on buffered pages (if enough), then store them."""
+        if not self._train_buf:
+            return
+        buf = self._train_buf
+        self._train_buf = {}
+        if self._dict_id is None and len(buf) >= 256:
+            try:
+                d = zstd.train_dictionary(self.config["dict_size"], [v[0] for v in buf.values()],
+                                          level=self.config["zstd_level"])
+                self._dict_id = self._put_now(d.as_bytes(), OT_DICT, None, None)
+                self._dict_cctx = None
+            except zstd.ZstdError:
+                pass
+        for id_, (data, base) in buf.items():
+            self._put_now(data, OT_BLOB, base, id_)
+
+    def _put_now(self, data: bytes, otype: int, base: bytes | None,
+                 id_: bytes | None) -> bytes:
+        if id_ is None:
+            id_ = oid(data)
+        if id_ in self._pending or (self._mem_index is not None and id_ in self._mem_index):
+            return id_
         base_raw = None
         depth = 0
         if base is not None and base != id_ and self.config["delta"] != "none":
@@ -337,8 +416,8 @@ class Store:
             if bm is not None and bm.depth < self.config["max_depth"]:
                 base_raw = self.get(base)
                 depth = bm.depth + 1
-        kind, payload, used_base = self._encode(data, base, base_raw, self.config["delta"])
-        if used_base is None:
+        kind, payload, used_base = self._encode(data, base, base_raw, self.config["delta"], otype)
+        if used_base is None or kind == K_TDICT:
             depth = 0
         pack, off = self._append(otype, kind, len(data), payload, used_base)
         self._pending[id_] = ObjMeta(otype, kind, pack, off, len(payload), len(data),
@@ -367,7 +446,7 @@ class Store:
         self.db.executemany(
             "INSERT OR IGNORE INTO objects (id, otype, kind, pack, off, len, rawlen, base, depth)"
             " VALUES (?,?,?,?,?,?,?,?,?)",
-            [(k, m.otype, m.kind, m.pack, m.off, m.len, m.rawlen, m.base, m.depth)
+            [(k, m.otype, m.kind, m.pack, m.off, m.len, m.rawlen, None, m.depth)
              for k, m in self._pending.items()])
         self.db.execute("COMMIT")
         if self._mem_index is not None:
@@ -375,6 +454,21 @@ class Store:
         self._pending.clear()
 
     # ----------------------------------------------------------------- read
+    def base_of(self, m: ObjMeta) -> bytes | None:
+        """Delta base / dictionary id of an object.
+
+        It is not kept in the index (it is already in the pack record header,
+        and would cost 32 bytes per row); read it from the pack when needed.
+        """
+        if m.kind not in BASED_KINDS:
+            return None
+        if m.base is not None:
+            return m.base
+        b = os.pread(self._fd(m.pack), 32, m.off - 32)
+        if len(b) != 32:
+            raise IntegrityError(f"short read in pack {m.pack} at {m.off - 32}")
+        return b
+
     def read_payload(self, m: ObjMeta) -> bytes:
         buf = os.pread(self._fd(m.pack), m.len, m.off)
         if len(buf) != m.len:
@@ -382,6 +476,9 @@ class Store:
         return buf
 
     def get(self, id_: bytes, verify: bool = True, _depth: int = 0) -> bytes:
+        buffered = self._train_buf.get(id_)
+        if buffered is not None:
+            return buffered[0]
         with self._cache_lock:
             hit = self._cache.get(id_)
             if hit is not None:
@@ -392,19 +489,27 @@ class Store:
             raise ObjectMissing(id_.hex())
         if _depth > 64:
             raise IntegrityError("delta chain too deep / cyclic")
-        payload = self.read_payload(m)
+        if m.kind in BASED_KINDS and m.base is None:
+            buf = os.pread(self._fd(m.pack), m.len + 32, m.off - 32)
+            if len(buf) != m.len + 32:
+                raise IntegrityError(f"short read in pack {m.pack} at {m.off}")
+            mbase, payload = buf[:32], buf[32:]
+        else:
+            mbase, payload = m.base, self.read_payload(m)
         try:
             if m.kind == K_RAW:
                 data = payload
             elif m.kind == K_ZSTD:
                 data = self._dctx().decompress(payload, max_output_size=m.rawlen)
             elif m.kind == K_XOR:
-                base = self.get(m.base, verify, _depth + 1)
+                base = self.get(mbase, verify, _depth + 1)
                 data = xor_bytes(self._dctx().decompress(payload, max_output_size=m.rawlen), base)
             elif m.kind == K_ZDICT:
-                base = self.get(m.base, verify, _depth + 1)
+                base = self.get(mbase, verify, _depth + 1)
                 d = zstd.ZstdCompressionDict(base, dict_type=zstd.DICT_TYPE_RAWCONTENT)
                 data = zstd.ZstdDecompressor(dict_data=d).decompress(payload, max_output_size=m.rawlen)
+            elif m.kind == K_TDICT:
+                data = self._dict_dctx(mbase).decompress(payload, max_output_size=m.rawlen)
             else:
                 raise IntegrityError(f"unknown encoding {m.kind}")
         except zstd.ZstdError as e:
@@ -518,7 +623,7 @@ class Store:
                 otype, kind = tk >> 4, tk & 0xF
                 off += REC_HDR.size
                 base = None
-                if kind in (K_XOR, K_ZDICT):
+                if kind in BASED_KINDS:
                     base = f.read(32)
                     off += 32
                 yield otype, kind, rawlen, off, paylen, base

@@ -1,6 +1,7 @@
 """Building snapshots (commits) from a PostgreSQL base backup, and reading them back."""
 from __future__ import annotations
 
+import copy
 import datetime as _dt
 import fnmatch
 import hashlib
@@ -260,10 +261,11 @@ def snapshot(store: Store, entries: Iterator[Entry], parent: bytes | None = None
         st.blocks += len(ids)
         st.logical_bytes += size
 
+    store.flush_buffers()   # pages held back for dictionary training
     tree = {"block_size": bs, "files": files}
     tree_id = store.put_json(tree, OT_TREE, base=parent_tree_id)
     st.seconds = round(time.time() - t0, 3)
-    st.store = dict(store.stats)
+    st.store = copy.deepcopy(store.stats)
     commit = {
         "tree": tree_id.hex(),
         "parent": parent.hex() if parent else None,
